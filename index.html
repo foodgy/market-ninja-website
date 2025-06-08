@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Ninja - бесплатный парсер Ozon, Wildberries и Lamoda</title>
+    <meta name="description" content="Market Ninja — это бесплатный парсер для сбора данных с сайтов Ozon, Wildberries и Lamoda. Получайте информацию о товарах, ценах и многом другом одним нажатием кнопки!">
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00D4FF 0%, #5B85F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-bg {
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, #00D4FF 0%, #5B85F7 100%);
+        }
+    </style>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NNGL2VB8');</script>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="relative z-10 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-ninja text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold">Market Ninja</span>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="https://www.notion.so/romankoch/Market-Ninja-1e4a566aa76380f49e13daede196ec22"
+                        target="_blank" class="text-gray-300 hover:text-white transition-colors">Документация</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-bg py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Парсинг маркетплейсов в <span class="gradient-text">один клик</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Market Ninja — это бесплатный парсер для сбора данных с сайтов Ozon, Wildberries и Lamoda. Получайте
+                информацию о товарах, ценах и многом другом одним нажатием кнопки!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=item-share-cb"
+                    target="_blank"
+                    class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center">
+                    <i class="fab fa-chrome mr-2"></i>
+                    Добавить в Chrome
+                </a>
+            </div>
+
+            <!-- Screenshot Placeholder -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800 rounded-2xl shadow-2xl p-2 border border-gray-700">
+                    <a href="https://lh3.googleusercontent.com/W8NqUtlmiu2BySR3RkzwEbGzSYG_pu-frns7mFcNxgnnSj1Z4uRApyKYI5iecdquJxk7MhXfzsJKRuXF2pqTNf5klQ=s1600-w1600-h1000"
+                        target="_blank">
+                        <img class="rounded-xl" src="https://lh3.googleusercontent.com/W8NqUtlmiu2BySR3RkzwEbGzSYG_pu-frns7mFcNxgnnSj1Z4uRApyKYI5iecdquJxk7MhXfzsJKRuXF2pqTNf5klQ=s1600-w1600-h1000">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Что умеет Market Ninja</h2>
+                <p class="text-xl text-gray-300">Инструмент для исследования рынка и анализа данных</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-list text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Сбор с категорий</h3>
+                    <p class="text-gray-300">Собирайте данные о товарах со страниц категорий Ozon, Wildberries и Lamoda
+                    </p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Поиск и результаты</h3>
+                    <p class="text-gray-300">Извлекайте данные со страниц результатов поиска всех поддерживаемых
+                        маркетплейсов</p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tag text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Бренды и товары</h3>
+                    <p class="text-gray-300">Собирайте информацию со страниц брендов и карточек товаров</p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-file-export text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Экспорт данных</h3>
+                    <p class="text-gray-300">Экспортируйте собранные данные в форматы CSV и JSON</p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-clipboard text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Буфер обмена</h3>
+                    <p class="text-gray-300">Копируйте данные в буфер для вставки в Google Sheets или Excel</p>
+                </div>
+
+                <div class="bg-gray-900 p-8 rounded-xl card-hover">
+                    <div class="feature-icon w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Одним кликом</h3>
+                    <p class="text-gray-300">Простой и интуитивный интерфейс — никаких сложных настроек</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Поддерживаемые маркетплейсы</h2>
+            <p class="text-xl text-gray-300 mb-12">Работает с крупнейшими российскими площадками</p>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shopping-cart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Ozon</h3>
+                    <p class="text-gray-300 mt-2">Один из крупнейших маркетплейсов России</p>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-store text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Wildberries</h3>
+                    <p class="text-gray-300 mt-2">Ведущая российская интернет-платформа</p>
+                </div>
+
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tshirt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Lamoda</h3>
+                    <p class="text-gray-300 mt-2">Крупнейший интернет-магазин моды</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Посмотрите, как это работает</h2>
+                <p class="text-xl text-gray-300">Пример по использованию Market Ninja</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.youtube.com/embed/NTf1M_igL4E"
+                            title="Market Ninja - Как использовать расширение" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen class="w-full h-96 md:h-[500px]">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 p-12 rounded-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Начните собирать данные прямо сейчас</h2>
+                <p class="text-xl mb-8 text-blue-100">Market Ninja совершенно бесплатен и готов к использованию</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=item-share-cb"
+                        target="_blank"
+                        class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        <i class="fab fa-chrome mr-2"></i>
+                        Установить расширение
+                    </a>
+                    <a href="https://www.notion.so/romankoch/Market-Ninja-1e4a566aa76380f49e13daede196ec22"
+                        target="_blank"
+                        class="border border-white border-opacity-50 hover:border-opacity-100 px-8 py-4 rounded-lg text-lg transition-colors text-white">
+                        Читать документацию
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-ninja text-white text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold">Market Ninja</span>
+                </div>
+                <div class="flex items-center space-x-6 text-gray-400">
+                    <a href="https://www.notion.so/romankoch/Market-Ninja-1e4a566aa76380f49e13daede196ec22"
+                        target="_blank" class="hover:text-white transition-colors">
+                        Документация
+                    </a>
+                    <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=item-share-cb"
+                        target="_blank" class="hover:text-white transition-colors">
+                        Chrome Web Store
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>Создано <a href="https://romakoch.com" target="_blank"
+                        class="text-blue-400 hover:text-blue-300 transition-colors">romakoch.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
