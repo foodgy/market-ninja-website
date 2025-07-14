@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -65,7 +65,18 @@
                     <a href="/changelog" class="text-gray-300 hover:text-white transition-colors">История изменений</a>
                     <a href="/docs" class="text-gray-300 hover:text-white transition-colors">Документация</a>
                 </nav>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>                
             </div>
+        </div>
+        <!-- Mobile dropdown menu -->
+        <div id="mobileMenu" class="md:hidden px-4 pt-4 pb-2 hidden">
+            <a href="/changelog" class="block text-gray-300 hover:text-white py-2">История изменений</a>
+            <a href="/docs" class="block text-gray-300 hover:text-white py-2">Документация</a>
         </div>
     </header>
 
@@ -269,6 +280,11 @@
     </footer>
 
     <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
