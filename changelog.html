@@ -72,7 +72,7 @@
             <a href="https://forms.gle/YekxjmLvUjaemMZaA"
                 target="_blank"
                 class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center">
-                Напишите нам
+                Нашли ошибку? Напишите нам!
             </a>
         </div>
     </section>
@@ -81,28 +81,41 @@
     <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
         <div class="space-y-16">
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v3.0.5</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.6</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
-                    <li>В таблицу данных парсинга <strong>Ozon</strong> (Детальный парсинг) добавлены колонки с лучшей ценой товара и количеством найденных лучших цен.
+                    <li>В таблицу данных парсинга <strong>Wildberries</strong> добавлена колонка с URL видеообложки товара</li>
+                    <li>Исправлен сбор цен на <strong>Wildberries</strong>
+                        <ul class="list-disc text-gray-300 space-y-2 ml-10">
+                            <li>В рамках A/B теста <strong>Wildberries</strong> показывает некоторым пользователям цену с учётом стоимости доставки</li>
+                        </ul>
+                    </li>
+                    <li>Исправлена ошибка парсинга URL титульной картинки товара на <strong>Ozon</strong></li>
                 </ul>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v3.0.4</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.5</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
-                    <li>Добавлена поддержка парсинга <a href="https://www.wildberries.ru/seller/10208" class="text-blue-400 hover:text-blue-300 transition-colors">страниц продавцов</a> для <strong>Wildberries</strong>.
+                    <li>В таблицу данных парсинга <strong>Ozon</strong> (Детальный парсинг) добавлены колонки с лучшей ценой товара и количеством найденных лучших цен</li>
                 </ul>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v3.0.3.1</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.4</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
-                    <li><strong>Wildberries</strong> что-то поменял и парсинг сломался, но мы починили.</li>
+                    <li>Добавлена поддержка парсинга <a href="https://www.wildberries.ru/seller/10208" class="text-blue-400 hover:text-blue-300 transition-colors">страниц продавцов</a> для <strong>Wildberries</strong></li>
                 </ul>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v3.0.3</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.3.1</h2>
+                <ul class="list-disc text-gray-300 space-y-2 ml-10">
+                    <li><strong>Wildberries</strong> что-то поменял и парсинг сломался, но мы починили</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.3</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
                     <li>Больше не показывается кол-во найденных страниц и товаров в категориях <strong>Ozon</strong>.</li>
                     <li>Исправлена ошибка, из-за которой в каталогах <strong>Ozon</strong> собирались данные только о первых 24 товарах</li>
@@ -110,14 +123,14 @@
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v3.0.0</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3.0.0</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
                     <li>Добавлен сбор данных со страниц товаров, брендов, категорий и поиска <strong>Ozon</strong></li>
                 </ul>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v2.0.0</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">2.0.0</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
                     <li>Добавлен сбор данных со страниц товаров, брендов, категорий и поиска
                         <strong>Wildberries</strong></li>
@@ -126,7 +139,7 @@
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v1.1.0</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">1.1.0</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
                     <li>Сильно поменялась структура проекта в рамках подготовки к добавлению новых сайтов</li>
                     <li>Собранные данные теперь хранятся в памяти приложения, а не в <code>chrome.storage</code></li>
@@ -134,7 +147,7 @@
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">v1.0.0</h2>
+                <h2 class="text-2xl font-semibold text-blue-400 mb-4">1.0.0</h2>
                 <ul class="list-disc text-gray-300 space-y-2 ml-10">
                     <li>Сбор данных о товарах со страниц категорий и карточек товаров маркетплейса
                         <strong>Lamoda</strong></li>
