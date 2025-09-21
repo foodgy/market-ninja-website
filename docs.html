@@ -1,153 +1,179 @@
 <!DOCTYPE html>
-<html lang="ru">
-    
+<html lang="ru" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Документация — Market Ninja</title>
-    <meta name="description" content="Документация по использованию расширения Market Ninja. Узнайте, как установить, настроить и использовать расширение для сбора данных с маркетплейсов." />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
+    <meta name="description" content="Документация по использованию расширения Market Ninja. Узнайте, как установить, настроить и использовать расширение для сбора данных с маркетплейсов.">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        secondary: {
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    }
+                }
+            }
         }
-        .gradient-text {
-            background: linear-gradient(90deg, #00D4FF 0%, #5B85F7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        th, td {
-            border: 1px solid #4B5563;
-            padding: 0.5rem;
-            text-align: left;
-        }
-        th {
-            background-color: #1F2937;
-        }
-    </style>
-    <!-- Google Tag Manager -->
+    </script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NNGL2VB8');</script>
-    <!-- End Google Tag Manager -->
 </head>
-<body class="bg-gray-900 text-white">
-    <!-- Header -->
-    <header class="relative z-10 py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-ninja text-white text-lg"></i>
+<body class="font-inter bg-slate-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-4">
+                        <div class="w-10 h-10 justify-center">
+                            <img src="assets/img/logo.png" alt="logo">
+                        </div>
+                        <a href="/" class="text-xl font-bold text-gray-900">Market Ninja</a>
                     </div>
-                    <a href="/" class="text-xl font-bold">Market Ninja</a>
                 </div>
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="/changelog" class="text-gray-300 hover:text-white transition-colors">История изменений</a>
-                </nav>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/" class="text-gray-600 hover:text-bg-blue-600 px-3 py-2 text-sm font-medium transition-colors">Главная</a>
+                        <a href="/docs" class="text-blue-600 font-medium px-3 py-2 rounded-md text-sm">Документация</a>
+                        <a href="/changelog" class="text-gray-600 hover:text-bg-blue-600 px-3 py-2 text-sm font-medium transition-colors">История версий</a>
+                        <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=website" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">Установить для Chrome</a>
+                    </div>
+                </div>
+                
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button type="button" id="mobile-menu-button" class="text-gray-600 hover:text-bg-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
-                </div>  
+                </div>
             </div>
         </div>
-        <!-- Mobile dropdown menu -->
-        <div id="mobileMenu" class="md:hidden px-4 pt-4 pb-2 hidden">
-            <a href="/changelog" class="block text-gray-300 hover:text-white py-2">История изменений</a>
-            <a href="/docs" class="block text-gray-300 hover:text-white py-2">Документация</a>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+                <a href="/" class="text-gray-600 hover:text-bg-blue-600 block px-3 py-2 text-base font-medium">Главная</a>
+                <a href="/docs" class="text-blue-600 font-medium px-3 py-2 text-sm">Документация</a>
+                <a href="/changelog" class="text-gray-600 hover:text-bg-blue-600 block px-3 py-2 text-base font-medium">История версий</a>
+                <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=website" class="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center mt-4">Установить для Chrome</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Title -->
-    <section class="py-20 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Документация</h1>
-            <p class="text-xl text-gray-400">Руководство по использованию расширения Market Ninja</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-            <a href="https://t.me/getmarketninja" target="_blank" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-md text-lg font-semibold text-white transition-colors inline-flex items-center shadow-sm">
-                <i class="fab fa-telegram-plane mr-2"></i>
-                 Есть предложения? Напишите нам!
-            </a>
+    <!-- Header Section -->
+    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex items-center justify-center mb-6">
+                <i class="fas fa-book text-4xl text-blue-600 mr-4"></i>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Документация</h1>
+            </div>
+            <div class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p>Руководство по использованию расширения Market Ninja</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-delay-2">
+                <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm/reviews?hl=ru&utm_source=website" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fa-solid fa-star mr-2"></i>
+                    Оставить отзыв
+                </a>
+                <a href="https://t.me/getmarketninja" target="_blank" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center">
+                    <i class="fab fa-telegram mr-2"></i>
+                    Напишите нам!
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Documentation Section -->
-    <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div class="space-y-8">
+    <!-- Version History Section -->
+    <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+
+        <!-- Search Input -->
+        <div class="mb-6 sticky top-4 z-20">
+            <label for="docSearchInput" class="sr-only">Поиск по документации</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="search" id="docSearchInput" placeholder="Найти в документации, например, экспорт..." class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm shadow-sm">
+            </div>
+        </div>
+        <div id="documentation-content" class="space-y-16">
             <!-- Table of Contents -->
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">Оглавление</h2>
-                <ul class="list-decimal text-gray-300 space-y-2 ml-6">
-                    <li><a href="#introduction" class="text-blue-400 hover:text-blue-300 transition-colors">Введение</a></li>
-                    <li><a href="#installation" class="text-blue-400 hover:text-blue-300 transition-colors">Установка расширения</a></li>
-                    <li><a href="#interface" class="text-blue-400 hover:text-blue-300 transition-colors">Интерфейс расширения</a></li>
-                    <li><a href="#supported-sites" class="text-blue-400 hover:text-blue-300 transition-colors">Поддерживаемые сайты и типы страниц</a></li>
-                    <li><a href="#parsing-modes" class="text-blue-400 hover:text-blue-300 transition-colors">Режимы парсинга</a></li>
-                    <li><a href="#usage-instructions" class="text-blue-400 hover:text-blue-300 transition-colors">Инструкция по использованию расширения</a></li>
-                    <li><a href="#usage-examples" class="text-blue-400 hover:text-blue-300 transition-colors">Примеры использования</a></li>
-                    <li><a href="#faq" class="text-blue-400 hover:text-blue-300 transition-colors">Частые вопросы и устранение неполадок</a></li>
-                    <li><a href="#tips" class="text-blue-400 hover:text-blue-300 transition-colors">Полезные советы</a></li>
-                </ul>
+            <div id="table-of-contents">
+                 <div class="bg-white p-6 rounded-xl border border-gray-200">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Оглавление</h2>
+                    <ul class="list-decimal text-gray-700 space-y-2 ml-6">
+                        <li><a href="#introduction" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Введение</a></li>
+                        <li><a href="#installation" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Установка расширения</a></li>
+                        <li><a href="#interface" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Интерфейс расширения</a></li>
+                        <li><a href="#supported-sites" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Поддерживаемые сайты и типы страниц</a></li>
+                        <li><a href="#parsing-modes" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Режимы парсинга</a></li>
+                        <li><a href="#usage-instructions" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Инструкция по использованию расширения</a></li>
+                        <li><a href="#usage-examples" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Примеры использования</a></li>
+                        <li><a href="#faq" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Частые вопросы и устранение неполадок</a></li>
+                        <li><a href="#tips" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Полезные советы</a></li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Introduction -->
             <div id="introduction">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">1. Введение</h2>
-                <p class="text-gray-300">Расширение <strong>Market Ninja</strong> позволяет собирать данные о товарах с маркетплейсов Ozon, Wildberries и Lamoda. Вы можете использовать его для:</p>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10 mt-2">
+                <h2 class="text-xl font-bold text-gray-900 my-3">Введение</h2>
+                <p class="text-gray-600 my-3">Расширение <strong>Market Ninja</strong> позволяет собирать данные о товарах с маркетплейсов Ozon, Wildberries и Lamoda. Вы можете использовать его для:</p>
+                <ul class="list-disc ml-4 text-gray-600 space-y-2">
                     <li>Мониторинга цен на товары (например, чтобы узнать, кто из продавцов демпингует).</li>
                     <li>Сбора информации о характеристиках товаров (бренд, размеры, объем, страна производства и т.д.).</li>
                     <li>Анализа ассортимента в категориях, поисковых запросах или брендах.</li>
                     <li>Экспорта данных в удобные форматы для работы в Excel или других программах.</li>
                 </ul>
-                <p class="text-gray-300 mt-4">Расширение создано для пользователей, которые хотят быстро и просто получить данные без технических знаний. Это руководство объяснит, как установить, настроить и использовать расширение, а также как выбрать подходящий режим парсинга и экспортировать данные.</p>
-                <p class="bg-gray-800 border-l-4 border-blue-500 p-4 my-4 text-gray-300 rounded">⚠️ По любым вопросам, предложениям и жалобам — используйте <a href="https://forms.gle/YekxjmLvUjaemMZaA" target="_blank" class="text-blue-400 hover:text-blue-300">форму обратной связи</a>.</p>
+                <p class="my-3">Расширение создано для пользователей, которые хотят быстро и просто получить данные без технических знаний. Это руководство объяснит, как установить, настроить и использовать расширение, а также как выбрать подходящий режим парсинга и экспортировать данные.</p>
             </div>
 
             <!-- Installation -->
             <div id="installation">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">2. Установка расширения</h2>
-                <h3 class="text-xl font-medium text-gray-200 mb-2">Как установить</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
+                <h2 class="text-xl font-bold text-gray-900 my-3">Установка расширения</h2>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Как установить</h3>
+                <ol class="list-decimal ml-4 space-y-2">
                     <li>Откройте браузер Google Chrome.</li>
-                    <li>Перейдите в интернет-магазин Chrome по <a Dog href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm" target="_blank" class="text-blue-400 hover:text-blue-300">ссылке на расширение</a>.</li>
+                    <li>Перейдите в интернет-магазин Chrome по <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm" target="_blank" class="text-blue-600 hover:underline">ссылке на расширение</a>.</li>
                     <li>Нажмите кнопку "Добавить в Chrome".</li>
                     <li>В появившемся окне подтвердите установку, нажав "Добавить расширение".</li>
                     <li>Дождитесь, пока расширение установится. Вы увидите значок расширения в правом верхнем углу браузера (обычно это пазл, где можно закрепить расширение).</li>
                 </ol>
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Проверка установки</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
+                <h3 class="text-lg font-medium text-gray-900 my-3">Проверка установки</h3>
+                <ol class="list-decimal ml-4 space-y-2">
                     <li>Нажмите на значок расширений в Chrome (пазл в правом верхнем углу).</li>
-                    <li>В появии вшемся списске найдите расширение Market Ninja.</li>
+                    <li>В появившемся списке найдите расширение Market Ninja.</li>
                     <li>Закрепите его для быстрого доступа, нажав на значок булавки рядом с ним.</li>
                 </ol>
             </div>
 
             <!-- Interface -->
             <div id="interface">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">3. Интерфейс расширения</h2>
-                <p class="text-gray-300">Когда вы откроете расширение, вы увидите окно с несколькими основными элементами:</p>
-                <ul class="text-gray-300 space-y-2 ml-10 mt-2">
+                <h2 class="text-xl font-bold text-gray-900 my-3">Интерфейс расширения</h2>
+                <p class="my-3">Когда вы откроете расширение, вы увидите окно с несколькими основными элементами:</p>
+                <ul class="list-disc ml-4 space-y-2">
                     <li><strong>Заголовок:</strong> Содержит логотип и название расширения, а также кнопку "Помощь".</li>
                     <li><strong>Информация о странице:</strong> Показывает название страницы, URL, favicon сайта, а также количество доступных для парсинга страниц и товаров. Кнопка с лупой позволяет быстро вернуться к вкладке, на которой было открыто окно расширения.</li>
                     <li><strong>Панель управления:</strong>
-                        <ul class="list-disc ml-10 space-y-1">
+                        <ul class="list-disc ml-4 space-y-2">
                             <li>Выпадающее меню для выбора режима парсинга (быстрый или детальный).</li>
                             <li>Кнопка "Собрать данные" для запуска сбора данных (или "Остановить", если процесс идет).</li>
                             <li>Кнопка "Удалить" для удаления собранных данных.</li>
@@ -157,41 +183,44 @@
                     <li><strong>Полоса прогресса:</strong> Появляется во время парсинга, показывая, сколько товаров обработано.</li>
                     <li><strong>Таблица данных:</strong> Отображает собранные данные в виде таблицы с колонками.</li>
                 </ul>
-                <p class="text-gray-300 mt-4">Если вы открыли расширение на неподдерживаемом сайте (например, не Wildberries или Lamoda), вы увидите сообщение: "Этот сайт не поддерживается". Если возникла ошибка (например, слишком много запросов к сайту), появится сообщение с описанием проблемы.</p>
+                <div class="flex bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6">
+                    <i class="fas fa-exclamation-triangle text-yellow-400 mt-1 mr-3"></i>
+                    <p class="text-yellow-700">Если вы открыли расширение на неподдерживаемом сайте (например, не Wildberries или Lamoda), вы увидите сообщение: <i>Этот сайт не поддерживается</i>.</p>
+                </div>
             </div>
 
             <!-- Supported Sites -->
             <div id="supported-sites">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">4. Поддерживаемые сайты и типы страниц</h2>
-                <p class="text-gray-300">Расширение работает только на двух сайтах:</p>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10 mt-2">
-                    <li>Wildberries (<a href="https://www.wildberries.ru" target="_blank" class="text-blue-400 hover:text-blue-300">wildberries.ru</a>)</li>
-                    <li>Lamoda (<a href="https://www.lamoda.ru" target="_blank" class="text-blue-400 hover:text-blue-300">lamoda.ru</a>)</li>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Поддерживаемые сайты и типы страниц</h2>
+                <p class="my-3">Расширение работает только на двух сайтах:</p>
+                <ul class="list-disc space-y-2 ml-6 mt-4">
+                    <li>Wildberries (<a href="https://www.wildberries.ru" target="_blank" class="text-blue-600 hover:underline">wildberries.ru</a>)</li>
+                    <li>Lamoda (<a href="https://www.lamoda.ru" target="_blank" class="text-blue-600 hover:underline">lamoda.ru</a>)</li>
                 </ul>
-                <p class="text-gray-300 mt-4">Вы можете собирать данные с четырех типов страниц:</p>
-                <ul class="text-gray-300 space-y-2 ml-10 mt-2">
+                <p class="my-3">Вы можете собирать данные с четырех типов страниц:</p>
+                <ul class="space-y-2 ml-6 mt-4 list-disc">
                     <li><strong>Страница товара:</strong> Карточка конкретного товара (например, описание шампуня или кроссовок).
-                        <ul class="list-disc ml-10 space-y-1">
-                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/346625932/detail.aspx" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.wildberries.ru/catalog/346625932/detail.aspx</a></li>
-                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.router/p/mp002xc020ca/clothes-calzedonia-noski/" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.lamoda.ru/p/mp002xc020ca/clothes-calzedonia-noski/</a></li>
+                        <ul class="list-disc ml-4 space-y-2">
+                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/346625932/detail.aspx" target="_blank" class="text-blue-600 hover:underline">.../catalog/346625932/detail.aspx</a></li>
+                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.router/p/mp002xc020ca/clothes-calzedonia-noski/" target="_blank" class="text-blue-600 hover:underline">.../p/mp002xc020ca/...</a></li>
                         </ul>
                     </li>
-                    <li><strong>Категория:</strong> Страница со списком товаров в определенной категории (например, "Женская обувь" или "Шампуни").
-                        <ul class="list-disc ml-10 space-y-1">
-                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/detyam/dlya-malchikov/odezhda/verhnyaya-odezhda" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.wildberries.ru/catalog/detyam/dlya-malchikov/odezhda/verhnyaya-odezhda</a></li>
-                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/c/1419/clothes-premium-men-kardigani/" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.lamoda.ru/c/1419/clothes-premium-men-kardigani/</a></li>
+                    <li><strong>Категория:</strong> Страница со списком товаров в определенной категории (например, "Женская обувь").
+                        <ul class="list-disc ml-4 space-y-2">
+                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/detyam/dlya-malchikov/odezhda/verhnyaya-odezhda" target="_blank" class="text-blue-600 hover:underline">.../catalog/detyam/...</a></li>
+                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/c/1419/clothes-premium-men-kardigani/" target="_blank" class="text-blue-600 hover:underline">.../c/1419/clothes...</a></li>
                         </ul>
                     </li>
                     <li><strong>Поиск:</strong> Результаты поиска по ключевому слову (например, "кроссовки Nike").
-                        <ul class="list-disc ml-10 space-y-1">
-                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ноутбук" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.wildberries.ru/catalog/0/search.aspx?search=ноутбук</a></li>
-                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/catalogsearch/result/?q=футболка%20женская" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.lamoda.ru/catalogsearch/result/?q=футболка%20женская</a></li>
+                        <ul class="list-disc ml-4 space-y-2">
+                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ноутбук" target="_blank" class="text-blue-600 hover:underline">.../search.aspx?search=...</a></li>
+                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/catalogsearch/result/?q=футболка%20женская" target="_blank" class="text-blue-600 hover:underline">.../catalogsearch/result/?q=...</a></li>
                         </ul>
                     </li>
                     <li><strong>Страница бренда:</strong> Список товаров определенного бренда (например, все товары Adidas).
-                        <ul class="list-disc ml-10 space-y-1">
-                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/brands/lassie" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.wildberries.ru/brands/lassie</a></li>
-                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/b/25725/brand-lassie/" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.lamoda.ru/b/25725/brand-lassie/</a></li>
+                        <ul class="list-disc ml-4 space-y-2">
+                            <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/brands/lassie" target="_blank" class="text-blue-600 hover:underline">.../brands/lassie</a></li>
+                            <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/b/25725/brand-lassie/" target="_blank" class="text-blue-600 hover:underline">.../b/25725/brand-lassie/</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -199,376 +228,251 @@
 
             <!-- Parsing Modes -->
             <div id="parsing-modes">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">5. Режимы парсинга</h2>
-                <p class="text-gray-300">Расширение поддерживает два режима парсинга: быстрый и детальный. Они отличаются по объему собираемых данных и скорости работы. Выбор режима влияет на то, какие данные вы получите и сколько времени займет процесс.</p>
-                
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Быстрый сбор данных (Quick Parsing)</h3>
-                <p class="text-gray-300"><strong>Что собирает:</strong> Основные данные о товарах, такие как:</p>
-                
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Быстрый сбор данных Ozon</h4>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Режимы парсинга</h2>
+                <p class="my-3">Расширение поддерживает два режима парсинга: быстрый и детальный. Они отличаются по объему собираемых данных и скорости работы.</p>
+                    
+                <h3 class="text-lg font-medium text-gray-900 my-3">Быстрый сбор данных (Quick Parsing)</h3>
+                <p class="my-3"><strong>Что собирает:</strong> Основные данные о товарах, которые видны в каталоге.</p>
+                    
+                <!-- Ozon Quick -->
+                <h4 class="text-md font-medium text-gray-900 my-3">Быстрый сбор данных Ozon</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (En)</th>
-                            <th>Параметр (Ru)</th>
-                            <th>Описание</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (Ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>SKU</td><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
-                        <tr><td>Name</td><td>Название</td><td>Полное наименование товара.</td></tr>
-                        <tr><td>Old Price</td><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
-                        <tr><td>Price</td><td>Цена</td><td>Текущая цена товара.</td></tr>
-                        <tr><td>Special Price</td><td>Спец. цена</td><td>Цена с дополнительной скидкой (например, скидка за оплату по карте Ozon).</td></tr>
-                        <tr><td>Rating</td><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
-                        <tr><td>Reviews</td><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
-                        <tr><td>Thumbnail</td><td>Картинка</td><td>URL основного (превью) изображения товара.</td></tr>
-                        <tr><td>URL</td><td>URL</td><td>Полный URL карточки товара.</td></tr>
+                        <tr><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
+                        <tr><td>Название</td><td>Полное наименование товара.</td></tr>
+                        <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
+                        <tr><td>Цена</td><td>Текущая цена товара.</td></tr>
+                        <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой (например, Ozon Карта).</td></tr>
+                        <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
+                        <tr><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
+                        <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
+                        <tr><td>URL</td><td>Полный URL карточки товара.</td></tr>
                     </tbody>
                 </table>
 
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Быстрый сбор данных Wildberries</h4>
+                <!-- WB Quick -->
+                <h4 class="text-md font-medium text-gray-900 my-3">Быстрый сбор данных Wildberries</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (En)</th>
-                            <th>Параметр (Ru)</th>
-                            <th>Описание (RU)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (Ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>SKU</td><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
-                        <tr><td>Brand</td><td>Бренд</td><td>Название бренда товара.</td></tr>
-                        <tr><td>Name</td><td>Название</td><td>Полное наименование товара.</td></tr>
-                        <tr><td>Old Price</td><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
-                        <tr><td>Price</td><td>Цена</td><td>Текущая цена товара (со скидкой СПП).</td></tr>
-                        <tr><td>Special Price</td><td>Спец. цена</td><td>Цена с дополнительной скидкой (WB Кошелек для неавторизованного пользователя).</td></tr>
-                        <tr><td>Color</td><td>Цвет</td><td>Цвет товара.</td></tr>
-                        <tr><td>Promo</td><td>Акция</td><td>Текст рекламной акции.</td></tr>
-                        <tr><td>Rating</td><td><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
-                        <tr><td>Reviews</td><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
-                        <tr><td>Images</td><td>Кол-во картинок</td><td>Количество изображений в карточке товара.</td></tr>
-                        <tr><td>Seller</td><td>Продавец</td><td>Наименование продавца.</td></tr>
-                        <tr><td>Seller ID</td><td>ID продавца</td><td>Уникальный идентификатор продавца на маркетплейсе.</td></tr>
-                        <tr><td>Seller Rating</td><td>Рейтинг продавца</td><td>Рейтинг продавца.</td></tr>
-                        <tr><td>Fulfillment</td><td>Схема</td><td>Схема работы продавца (FBO - со склада маркетплейса, FBS - со склада продавца).</td></tr>
-                        <tr><td>Quantity</td><td>Количество</td><td>Общее количество товара на складах.</td></tr>
-                        <tr><td>Video Cover</td><td>Видеообложка</td><td>Ссылка на видеообложку.</td></tr>
-                        <tr><td>Thumbnail</td><td>Картинка</td><td>URL основного (превью) изображения товара.</td></tr>
-                        <tr><td>URL</td><td>URL</td><td>Полный URL карточки товара.</td></tr>
-                        <tr><td>Size</td><td>Размер</td><td>Доступные размеры товара (техническое название, через запятую).</td></tr>
-                        <tr><td>Size Label</td><td>Название размера</td><td>Доступные размеры товара (как указано у бренда/продавца, через запятую).</td></tr>
+                        <tr><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
+                        <tr><td>Бренд</td><td>Название бренда товара.</td></tr>
+                        <tr><td>Название</td><td>Полное наименование товара.</td></tr>
+                        <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
+                        <tr><td>Цена</td><td>Текущая цена товара (со скидкой СПП).</td></tr>
+                        <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой (WB Кошелек).</td></tr>
+                        <tr><td>Цвет</td><td>Цвет товара.</td></tr>
+                        <tr><td>Акция</td><td>Текст рекламной акции.</td></tr>
+                        <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
+                        <tr><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
+                        <tr><td>Продавец</td><td>Наименование продавца.</td></tr>
+                        <tr><td>Схема</td><td>Схема работы продавца (FBO или FBS).</td></tr>
+                        <tr><td>Количество</td><td>Общее количество товара на складах.</td></tr>
+                        <tr><td>Видеообложка</td><td>Ссылка на видеообложку.</td></tr>
+                        <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
+                        <tr><td>URL</td><td>Полный URL карточки товара.</td></tr>
                     </tbody>
                 </table>
 
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Быстрый сбор данных Lamoda</h4>
+                <!-- Lamoda Quick -->
+                <h4 class="text-md font-medium text-gray-900 my-3">Быстрый сбор данных Lamoda</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (En)</th>
-                            <th>Параметр (Ru)</th>
-                            <th>Описание</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (Ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>SKU</td><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
-                        <tr><td>Brand</td><td>Бренд</td><td>Название бренда товара.</td></tr>
-                        <tr><td>Name</td><td>Название</td><td>Полное наименование товара.</td></tr>
-                        <tr><td>Category</td><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
-                        <tr><td>Color</td><td>Цвет</td><td>Цвет товара.</td></tr>
-                        <tr><td>Old Price</td><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
-                        <tr><td>Price</td><td>Цена</td><td>Текущая цена товара.</td></tr>
-                        <tr><td>Special Price</td><td>Спец. цена</td><td>Цена с дополнительной скидкой (например, скидка за лояльность для неавторизованного пользователя).</td></tr>
-                        <tr><td>Rating</td><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
-                        <tr><td>Reviews</td><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
-                        <tr><td>Seller ID</td><td>ID продавца</td><td>Уникальный идентификатор продавца на маркетплейсе.</td></tr>
-                        <tr><td>Fulfillment</td><td>Схема</td><td>Схема работы продавца (FBO - со склада маркетплейса, FBS - со склада продавца).</td></tr>
-                        <tr><td>Images</td><td>Кол-во картинок</td><td>Количество изображений в карточке товара.</td></tr>
-                        <tr><td>Quantity</td><td>Количество</td><td>Общее количество товара на складах (максимальное значение остатков, которое указывает Lamoda — 20).</td></tr>
-                        <tr><td>Thumbnail</td><td>Картинка</td><td>URL основного (превью) изображения товара.</td></tr>
-                        <tr><td>URL</td><td>URL</td><td>Полный URL карточки товара.</td></tr>
-                        <tr><td>Size</td><td>Размер</td><td>Доступные размеры товара (техническое название, через запятую).</td></tr>
-                        <tr><td>Size Label</td><td>Название размера</td><td>Доступные размеры товара (как указано у бренда/продавца, через запятую).</td></tr>
+                        <tr><td>Артикул</td><td>Артикул товара (уникальный идентификатор на маркетплейсе).</td></tr>
+                        <tr><td>Бренд</td><td>Название бренда товара.</td></tr>
+                        <tr><td>Название</td><td>Полное наименование товара.</td></tr>
+                        <tr><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
+                        <tr><td>Цвет</td><td>Цвет товара.</td></tr>
+                        <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
+                        <tr><td>Цена</td><td>Текущая цена товара.</td></tr>
+                        <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой.</td></tr>
+                        <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
+                        <tr><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
+                        <tr><td>Количество</td><td>Общее количество товара на складах.</td></tr>
+                        <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
+                        <tr><td>URL</td><td>Полный URL карточки товара.</td></tr>
                     </tbody>
                 </table>
-                <p class="bg-gray-800 border-l-4 border-blue-500 p-4 my-4 text-gray-300 rounded">☝ Если вам необходимо выгружать дополнительные характеристики — заполните <a href="https://forms.gle/YekxjmLvUjaemMZaA" target="_blank" class="text-blue-400 hover:text-blue-300">форму обратной связи</a>.</p>
-                <p class="text-gray-300 mt-2"><strong>Скорость:</strong> Быстрее, так как собирает только базовую информацию.</p>
-                <p class="text-gray-300 mt-2"><strong>Когда использовать:</strong></p>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10 mt-2">
-                    <li>Если вам нужны основные данные для быстрого анализа.</li>
-                    <li>Если вы парсите большие категории с сотнями товаров.</li>
-                    <li>Если вы хотите сэкономить время.</li>
-                </ul>
-                <p class="text-gray-300 mt-2"><strong>Пример:</strong> Вы хотите узнать текущие цены на все кроссовки в категории на Wildberries.</p>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Детальный сбор данных (Deep Parsing)</h3>
-                <p class="text-gray-300"><strong>Что собирает:</strong> Все данные из стандартного режима плюс дополнительные характеристики с карточек товаров:</p>
-                
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Детальный сбор данных Ozon</h4>
+                    
+                <h3 class="text-lg font-medium text-gray-900 my-3">Детальный сбор данных (Deep Parsing)</h3>
+                <p class="my-3"><strong>Что собирает:</strong> Все данные из быстрого режима плюс дополнительные характеристики с карточек товаров.</p>
+                    
+                <!-- Ozon Deep -->
+                <h4 class="text-md font-medium text-gray-900 my-3">Детальный сбор данных Ozon</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (en)</th>
-                            <th>Параметр (ru)</th>
-                            <th>Описание (RU)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>Best Price</td><td>Лучшая цена</td><td>Лучшая цена данного товара.</td></tr>
-                        <tr><td>Best Price Count</td><td>Найдено дешевле</td><td>Кол-во предложений с лучшей ценой.</td></tr>
-                        <tr><td>Brand</td><td>Бренд</td><td>Название бренда товара.</td></tr>
-                        <tr><td>Color</td><td>Цвет</td><td>Цвет товара.</td></tr>
-                        <tr><td>Category</td><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
-                        <tr><td>Size</td><td>Размер</td><td>Доступные размеры товара (техническое название, через запятую).</td></tr>
-                        <tr><td>Size Label</td><td>Название размера</td><td>Доступные размеры товара (как указано у бренда/продавца, через запятую).</td></tr>
-                        <tr><td>Seller</td><td>Продавец</td><td>Наименование продавца.</td></tr>
-                        <tr><td>Seller ID</td><td>ID продавца</td><td>Уникальный идентификатор продавца на маркетплейсе.</td></tr>
-                        <tr><td>Questions</td><td>Вопросы</td><td>Количество вопросов о товаре.</td></tr>
-                        <tr><td>Collection</td><td>Коллекция</td><td>Название коллекции товара.</td></tr>
-                        <tr><td>Volume</td><td>Объем</td><td>Объем товара (например, для жидкостей).</td></tr>
-                        <tr><td>Season</td><td>Сезон</td><td>Сезон товара.</td></tr>
-                        <tr><td>Fabric</td><td>Состав</td><td>Состав товара.</td></tr>
-                        <tr><td>Origin</td><td>Страна производитель</td><td>Страна производства товара.</td></tr>
-                        <tr><td>Images</td><td>Кол-во картинок</td><td>Количество изображений в карточке товара.</td></tr>
-                        <tr><td>Videos</td><td>Кол-во видео</td><td>Количество видео в карточке товара.</td></tr>
-                        <tr><td>Video Cover</td><td>Видеообложка</td><td>Ссылка на видеообложку.</td></tr>
+                        <tr><td>Лучшая цена</td><td>Лучшая цена данного товара.</td></tr>
+                        <tr><td>Найдено дешевле</td><td>Кол-во предложений с лучшей ценой.</td></tr>
+                        <tr><td>Бренд</td><td>Название бренда товара.</td></tr>
+                        <tr><td>Цвет</td><td>Цвет товара.</td></tr>
+                        <tr><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
+                        <tr><td>Продавец</td><td>Наименование продавца.</td></tr>
+                        <tr><td>Вопросы</td><td>Количество вопросов о товаре.</td></tr>
+                        <tr><td>Страна производитель</td><td>Страна производства товара.</td></tr>
                     </tbody>
                 </table>
 
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Детальный сбор данных Wildberries</h4>
+                <!-- WB Deep -->
+                <h4 class="text-lg font-medium text-gray-900 mt-4 my-3">Детальный сбор данных Wildberries</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (En)</th>
-                            <th>Параметр (Ru)</th>
-                            <th>Описание (RU)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (Ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>Description</td><td>Описание</td><td>Описание товара.</td></tr>
-                        <tr><td>Seller SKU</td><td>Артикул поставщика</td><td>Артикул товара поставщика.</td></tr>
-                        <tr><td>Season</td><td>Сезон</td><td>Сезон товара.</td></tr>
-                        <tr><td>Fabric</td><td>Состав</td><td>Состав товара.</td></tr>
-                        <tr><td>Origin</td><td>Страна производитель</td><td>Страна производства товара.</td></tr>
-                        <tr><td>Volume</td><td>Объем</td><td>Объем товара (например, для жидкостей).</td></tr>
-                        <tr><td>Category</td><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
+                        <tr><td>Описание</td><td>Описание товара.</td></tr>
+                        <tr><td>Артикул поставщика</td><td>Артикул товара поставщика.</td></tr>
+                        <tr><td>Сезон</td><td>Сезон товара.</td></tr>
+                        <tr><td>Состав</td><td>Состав товара.</td></tr>
+                        <tr><td>Страна производитель</td><td>Страна производства товара.</td></tr>
+                        <tr><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
                     </tbody>
                 </table>
 
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Детальный сбор данных Lamoda</h4>
+                <!-- Lamoda Deep -->
+                <h4 class="text-md font-medium text-gray-900 my-3">Детальный сбор данных Lamoda</h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр (en)</th>
-                            <th>Параметр (ru)</th>
-                            <th>Описание (RU)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Параметр (ru)</th><th>Описание</th></tr></thead>
                     <tbody>
-                        <tr><td>Seller SKU</td><td>Артикул поставщика</td><td>Артикул товара поставщика.</td></tr>
-                        <tr><td>Collection</td><td>Коллекция</td><td>Название коллекции товара.</td></tr>
-                        <tr><td>Description</td><td>Описание</td><td>Описание товара.</td></tr>
-                        <tr><td>Questions</td><td>Вопросы</td><td>Количество вопросов о товаре.</td></tr>
-                        <tr><td>Volume</td><td>Объем</td><td>Объем товара (например, для жидкостей).</td></tr>
-                        <tr><td>Season</td><td>Сезон</td><td>Сезон товара.</td></tr>
-                        <tr><td>Fabric</td><td>Состав</td><td>Состав товара.</td></tr>
-                        <tr><td>Origin</td><td>Страна производитель</td><td>Страна производства товара.</td></tr>
+                        <tr><td>Артикул поставщика</td><td>Артикул товара поставщика.</td></tr>
+                        <tr><td>Коллекция</td><td>Название коллекции товара.</td></tr>
+                        <tr><td>Описание</td><td>Описание товара.</td></tr>
+                        <tr><td>Вопросы</td><td>Количество вопросов о товаре.</td></tr>
+                        <tr><td>Сезон</td><td>Сезон товара.</td></tr>
+                        <tr><td>Состав</td><td>Состав товара.</td></tr>
+                        <tr><td>Страна производитель</td><td>Страна производства товара.</td></tr>
                     </tbody>
                 </table>
-                <p class="bg-gray-800 border-l-4 border-blue-500 p-4 my-4 text-gray-300 rounded">☝ Если вам необходимо выгружать дополнительные характеристики — заполните <a href="https://forms.gle/YekxjmLvUjaemMZaA" target="_blank" class="text-blue-400 hover:text-blue-300">форму обратной связи</a>.</p>
-                <p class="text-gray-300 mt-2"><strong>Скорость:</strong> Медленнее, так как делает дополнительные запросы к сайту для получения детальной информации.</p>
-                <p class="text-gray-300 mt-2"><strong>Когда использовать:</strong></p>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10 mt-2">
-                    <li>Если вам нужны полные характеристики для глубокого анализа (например, для мониторинга цен, используя артикулы производителя и маркетплейса).</li>
-                    <li>Если вы парсите страницу одного товара или небольшую категорию.</li>
-                    <li>Если вы хотите собрать данные для маркетинговых исследований.</li>
-                </ul>
-                <p class="text-gray-300 mt-2"><strong>Пример:</strong> Вы хотите получить таблицу с артикулами производителя, артикулами маркетплейса и текущими ценами для мониторинга соблюдения РРЦ.</p>
-                <p class="text-gray-300 mt-4"><strong>Рекомендации:</strong></p>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10 mt-2">
-                    <li>Если вы парсите страницу товара, детальный режим особенно полезен, так как он собирает данные о связанных товарах (например, другие цвета или размеры).</li>
-                </ul>
             </div>
 
             <!-- Usage Instructions -->
             <div id="usage-instructions">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">6. Инструкция по использованию расширения</h2>
-                <h3 class="text-xl font-medium text-gray-200 mb-2">Шаг 1: Открытие расширения</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Откройте Google Chrome и перейдите на страницу Wildberries или Lamoda, которую хотите спарсить (например, карточку товара, категорию, поиск или бренд).</li>
-                    <li>Нажмите на значок расширения в правом верхнем углу браузера (если вы закрепили расширение, это будет его иконка; иначе найдите его через значок пазла).</li>
-                    <li>В открывшемся окне вы увидите информацию о текущей странице:
-                        <ul class="list-disc ml-6 space-y-1">
-                            <li>Название страницы (например, "Кроссовки Nike Air Max").</li>
-                            <li>URL страницы.</li>
-                            <li>Количество доступных для парсинга страниц и товаров.</li>
-                        </ul>
-                    </li>
-                </ol>
-                <p class="bg-gray-800 border-l-4 border-blue-500 p-4 my-4 text-gray-300 rounded">☝ Wildberries позволяет собирать данные только с 50 страниц в любой категории.</p>
-                <p class="bg-gray-800 border-l-4 border-blue-500 p-4 my-4 text-gray-300 rounded">⚠️ Если вы видите сообщение "Этот сайт не поддерживается", значит, вы находитесь не на Wildberries или Lamoda. Перейдите на правильный сайт.</p>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Шаг 2: Выбор режима парсинга</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>В панели управления найдите выпадающее меню (оно показывает "Быстрый сбор данных" или "Детальный сбор данных").</li>
-                    <li>Выберите нужный режим:
-                        <ul class="list-disc ml-6 space-y-1">
-                            <li>Быстрый сбор данных для базовых данных.</li>
-                            <li>Детальный сбор данных для полной информации.</li>
-                        </ul>
-                    </li>
-                    <li>Если парсинг уже идет, меню будет заблокировано. Дождитесь завершения или остановите процесс.</li>
-                </ol>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Шаг 3: Запуск парсинга</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Нажмите кнопку "Собрать данные" в панели управления.</li>
-                    <li>Если кнопка неактивна, проверьте:
-                        <ul class="list-disc ml-6 space-y-1">
-                            <li>Находитесь ли вы на поддерживаемой странице (Wildberries или Lamoda).</li>
-                        </ul>
-                    </li>
-                    <li>После запуска вы увидите полосу прогресса, показывающую, сколько товаров обработано.</li>
-                    <li>Для категорий или поиска расширение автоматически обработает все доступные страницы (например, все товары в категории).</li>
-                </ol>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Шаг 4: Остановка парсинга</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Если вы хотите прервать процесс (например, собрали достаточно данных), нажмите кнопку "Остановить".</li>
-                    <li>Парсинг остановится, и вы увидите данные, собранные до этого момента.</li>
-                    <li>Полоса прогресса исчезнет, и кнопка снова станет "Собрать данные".</li>
-                </ol>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Шаг 5: Просмотр результатов</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>После завершения парсинга (или его остановки) данные появятся в таблице внизу окна.</li>
-                    <li>Прокрутите таблицу вправо или вниз, чтобы увидеть все столбцы и товары.</li>
-                </ol>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Шаг 6: Экспорт данных</h3>
-                <p class="text-gray-300">Вы можете сохранить собранные данные в трех форматах: JSON, CSV или скопировать в буфер обмена.</p>
-                
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Экспорт в JSON</h4>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Нажмите кнопку "Экспорт" в панели управления.</li>
-                    <li>В выпадающем меню выберите "JSON".</li>
-                    <li>Браузер начнет загрузку файла products.json.</li>
-                    <li>Найдите файл в папке загрузок на вашем компьютере.</li>
-                </ol>
-                <p class="text-gray-300 mt-2">JSON подходит для разработчиков или программ, которые работают с данными в этом формате.</p>
-
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Экспорт в CSV</h4>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Нажмите кнопку "Экспорт" и выберите "CSV".</li>
-                    <li>Браузер загрузит файл products.csv.</li>
-                    <li>Откройте файл в Excel, Google Таблицах или другой программе для работы с таблицами.</li>
-                </ol>
-                <p class="text-gray-300 mt-2">CSV удобен для анализа данных, создания отчетов или фильтрации в таблицах.</p>
-
-                <h4 class="text-lg font-medium text-gray-200 mt-4 mb-2">Копирование в буфер обмена</h4>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Нажмите кнопку "Экспорт" и выберите "Копировать".</li>
-                    <li>Данные будут скопированы в буфер обмена в формате TSV (таблица, разделенная табуляцией).</li>
-                    <li>Вставьте данные (Ctrl+V) в Excel, Google Таблицы или текстовый редактор.</li>
-                </ol>
-                <p class="text-gray-300 mt-2">Этот способ удобен, если вы хотите быстро вставить данные без сохранения файла.</p>
-                <p class="text-gray-300 mt-4"><strong>Примечание:</strong></p>
-                <ul class="list-disc text-gray-300 space-y-2 mt-2 ml-10">
-                    <li>Если в таблице нет данных, кнопка "Экспорт" будет неактивна.</li>
-                    <li>Экспортируются только те столбцы, которые видны в таблице (пустые столбцы автоматически скрываются).</li>
-                </ul>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Инструкция по использованию</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 my-3">Шаг 1: Открытие расширения</h3>
+                        <p class="my-3">Откройте страницу на Wildberries, Ozon или Lamoda, которую хотите спарсить, и нажмите на иконку расширения в браузере.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 my-3">Шаг 2: Выбор режима</h3>
+                        <p class="my-3">Выберите режим парсинга: "Быстрый сбор данных" для основной информации или "Детальный" для сбора всех характеристик с карточек товаров.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 my-3">Шаг 3: Запуск парсинга</h3>
+                        <p class="my-3">Нажмите кнопку "Собрать данные". Вы увидите прогресс-бар, показывающий процесс сбора.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 my-3">Шаг 4: Экспорт данных</h3>
+                        <p class="my-3">После завершения парсинга данные появятся в таблице. Вы можете скопировать их в буфер обмена или экспортировать в форматы CSV, XLSX и JSON с помощью кнопок.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Usage Examples -->
             <div id="usage-examples">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">7. Примеры использования</h2>
-                <h3 class="text-xl font-medium text-gray-200 mb-2">Пример 1: Парсинг карточки товара на Wildberries в стандартном режиме</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Откройте страницу товара, например: <a href="https://www.wildberries.ru/catalog/196048385/detail.aspx" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.wildberries.ru/catalog/196048385/detail.aspx</a>.</li>
-                    <li>Нажмите на значок расширения.</li>
-                    <li>В выпадающем меню выберите "Быстрый сбор данных".</li>
-                    <li>Нажмите "Собрать данные".</li>
-                    <li>Через несколько секунд в таблице появится строка с данными: бренд, цена, размеры, рейтинг и т.д.</li>
-                    <li>Нажмите "Экспорт" → "Копировать" и вставьте данные в Excel для анализа.</li>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Примеры использования</h2>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Пример 1: Быстрый сбор цен по категории</h3>
+                <ol class="list-decimal ml-4 space-y-2">
+                    <li>Перейдите в нужную категорию товаров на маркетплейсе.</li>
+                    <li>Откройте расширение, выберите "Быстрый сбор данных" и нажмите "Собрать данные".</li>
+                    <li>Через несколько минут вы получите таблицу со всеми товарами из категории, их ценами, рейтингом и т.д.</li>
+                    <li>Скопируйте данные в Excel для анализа цен конкурентов.</li>
                 </ol>
 
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Пример 2: Парсинг категории на Lamoda в детальном режиме</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>Перейдите в категорию, например: <a href="https://www.lamoda.ru/c/277/shoes-sandalii-dlya-malchikov/" target="_blank" class="text-blue-400 hover:text-blue-300">https://www.lamoda.ru/c/277/shoes-sandalii-dlya-malchikov/</a>.</li>
-                    <li>Откройте расширение.</li>
-                    <li>Выберите "Детальный сбор данных" в меню.</li>
-                    <li>Нажмите "Собрать данные".</li>
-                    <li>Следите за полосой прогресса. Это может занять несколько минут.</li>
-                    <li>После завершения в таблице появятся данные, включая объем, страну производства и описание.</li>
-                    <li>Нажмите "Экспорт" → "CSV", чтобы сохранить файл для работы в Excel.</li>
-                </ol>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Пример 3: Экспорт данных в CSV для анализа в Excel</h3>
-                <ol class="list-decimal text-gray-300 space-y-2 ml-10">
-                    <li>После парсинга (например, категории на Wildberries) убедитесь, что таблица заполнена.</li>
-                    <li>Нажмите "Экспорт" → "CSV".</li>
-                    <li>Откройте файл products.csv в Excel.</li>
-                    <li>Используйте фильтры Excel, чтобы найти товары с низкой ценой или определенным брендом.</li>
-                    <li>Сохраните отфильтрованные данные для отчета.</li>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Пример 2: Детальный сбор характеристик</h3>
+                <ol class="list-decimal ml-4 space-y-2">
+                    <li>Найдите интересующий вас товар или небольшую группу товаров.</li>
+                    <li>Откройте расширение, выберите "Детальный сбор данных" и запустите процесс.</li>
+                    <li>Расширение зайдет на каждую карточку товара и соберет полную информацию: артикул поставщика, состав, страну производства и т.д.</li>
+                    <li>Экспортируйте данные в CSV для дальнейшей работы.</li>
                 </ol>
             </div>
 
             <!-- FAQ -->
             <div id="faq">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">8. Частые вопросы и устранение неполадок</h2>
-                <h3 class="text-xl font-medium text-gray-200 mb-2">Почему расширение не работает на сайте?</h3>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10">
-                    <li>Убедитесь, что вы открываете окно расширения на сайте Wildberries (<a href="https://www.wildberries.ru" target="_blank" class="text-blue-400 hover:text-blue-300">wildberries.ru</a>) или Lamoda (<a href="https://www.lamoda.ru" target="_blank" class="text-blue-400 hover:text-blue-300">lamoda.ru</a>). Другие сайты не поддерживаются.</li>
-                    <li>Проверьте URL: он должен соответствовать одному из типов страниц (товар, категория, поиск, бренд).</li>
-                </ul>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Частые вопросы</h2>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Почему расширение не работает?</h3>
+                <p class="my-3">Убедитесь, что вы находитесь на поддерживаемом сайте (Ozon, Wildberries, Lamoda) и на одной из поддерживаемых страниц (категория, поиск, бренд, карточка товара). Попробуйте перезагрузить страницу.</p>
 
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Что делать, если появляется ошибка "Too many requests" (429)?</h3>
-                <ul class="list-disc list-inside text-gray-300 space-y-2 ml-10">
-                    <li>Это значит, что сайт временно ограничил доступ из-за большого количества запросов.</li>
-                    <li>Подождите 5-30 минут и попробуйте снова.</li>
-                    <li>Используйте стандартный режим, так как он делает меньше запросов.</li>
-                </ul>
-
-                <h3 class="text-xl font-medium text-gray-200 mt-6 mb-2">Куда обращаться за помощью?</h3>
-                <p class="text-gray-300">Если у вас есть вопросы или проблемы — используйте <a href="https://forms.gle/YekxjmLvUjaemMZaA" target="_blank" class="text-blue-400 hover:text-blue-300">форму обратной связи</a>.</p>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Что делать при ошибке "Too many requests"?</h3>
+                <p class="my-3">Сайт временно заблокировал ваши запросы. Это нормально при парсинге. Подождите 5-10 минут и попробуйте снова, либо парсите менее объемные категории.</p>
+                    
+                <h3 class="text-lg font-medium text-gray-900 my-3">Куда обращаться за помощью?</h3>
+                <p class="my-3">Если у вас есть вопросы, предложения или вы нашли ошибку, пожалуйста, используйте <a href="https://forms.gle/YekxjmLvUjaemMZaA" target="_blank" class="text-blue-600 hover:underline">форму обратной связи</a>.</p>
             </div>
 
             <!-- Tips -->
             <div id="tips">
-                <h2 class="text-2xl font-semibold text-blue-400 mb-4">9. Полезные советы</h2>
-                <ul class="list-disc text-gray-300 space-y-2 ml-10">
-                    <li><strong>Организация данных:</strong> Сохраняйте CSV-файлы с указанием даты и типа страницы (например, krossovki_2025-04-29.csv), чтобы не запутаться.</li>
+                <h2 class="text-xl font-bold text-gray-900 my-3">Полезные советы</h2>
+                <ul class="list-disc ml-4 space-y-2">
+                    <li><strong>Организация данных:</strong> Сохраняйте CSV-файлы с указанием даты и типа страницы (например, <strong>krossovki_2025-04-29.csv</strong>), чтобы не запутаться.</li>
                     <li><strong>Мониторинг цен:</strong> Парсите одну и ту же страницу раз в неделю, чтобы отслеживать изменения цен. Сравнивайте CSV-файлы в Excel.</li>
                 </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Готовы автоматизировать сбор данных?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Присоединяйтесь к нашим пользователей, которые уже экономят время с Market Ninja!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm?utm_source=website" class="bg-white text-blue-600 hover:bg-gray-50 px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fab fa-chrome mr-2"></i>
+                    Установить расширение бесплатно
+                </a>
+                <a href="https://t.me/getmarketninja" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center">
+                    <i class="fab fa-telegram mr-2"></i>
+                    Предложить идею
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-gray-900 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-ninja text-white text-sm"></i>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <span class="text-xl font-bold">MarketNinja</span>
                     </div>
-                    <a href="/" class="text-lg font-bold">Market Ninja</a>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Мощный и простой инструмент для извлечения данных с любых сайтов. 
+                        Превращайте веб-страницы в структурированные таблицы за секунды.
+                    </p>
                 </div>
-                <div class="flex items-center space-x-6 text-gray-400">
-                    <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm" target="_blank" class="hover:text-white transition-colors">Chrome Web Store</a>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Ресурсы</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/docs" class="text-gray-400 hover:text-white transition-colors">Документация</a></li>
+                        <li><a href="/changelog" class="text-gray-400 hover:text-white transition-colors">История версий</a></li>
+                        <li><a href="https://t.me/getmarketninja" target="_blank" class="text-gray-400 hover:text-white transition-colors">Поддержка</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Связаться</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://t.me/getmarketninja" target="_blank" class="text-gray-400 hover:text-white transition-colors">Telegram</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-                <p>Создано <a href="https://romakoch.com" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">romakoch.com</a></p>
+            
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Market Ninja, создано <a href="https://romakoch.com" target="_blank" class="text-gray-400 border-b border-gray-400 hover:border-0 hover:text-white transition-colors">romakoch.com</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/docs.js"></script>
 </body>
 </html>
