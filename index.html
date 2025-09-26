@@ -28,31 +28,105 @@
         }
     </script>
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Market Ninja",
-            "description": "Market Ninja — это бесплатный парсер цен Ozon, Wildberries и Lamoda. Получайте информацию о товарах, ценах и многом другом одним нажатием кнопки!",
-            "operatingSystem": ["Windows", "macOS", "Linux"],
-            "applicationCategory": "BrowserExtension",
-            "installUrl": "https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm",
-            "screenshot": "https://lh3.googleusercontent.com/W8NqUtlmiu2BySR3RkzwEbGzSYG_pu-frns7mFcNxgnnSj1Z4uRApyKYI5iecdquJxk7MhXfzsJKRuXF2pqTNf5klQ=s1600-w1600-h1000",
-            "author": {
-                "@type": "Person",
-                "name": "Roman Koch",
-                "url": "https://romakoch.com"
+    {
+        "@context":"https://schema.org",
+        "@graph":[
+            {
+                "@type":"Organization",
+                "@id":"https://marketninja.ru/#organization",
+                "name":"Market Ninja",
+                "url":"https://marketninja.ru/",
+                "logo":{
+                    "@type":"ImageObject",
+                    "url":"https://marketninja.ru/assets/img/logo.png",
+                    "width":600,
+                    "height":532
+                }
             },
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "RUB"
+            {
+                "@type":"WebSite",
+                "@id":"https://marketninja.ru/#website",
+                "url":"https://marketninja.ru/",
+                "name":"Market Ninja",
+                "publisher":{
+                    "@id":"https://marketninja.ru/#organization"
+                }
             },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "ratingCount": "125"
+            {
+                "@type":"SoftwareApplication",
+                "@id":"https://marketninja.ru/#software",
+                "name":"Market Ninja",
+                "description":"Market Ninja — бесплатный парсер цен Ozon, Wildberries и Lamoda. Получайте информацию о товарах, ценах и многом другом одним нажатием кнопки!",
+                "url":"https://marketninja.ru/",
+                "applicationCategory":"BrowserApplication",
+                "operatingSystem":[
+                    "Windows",
+                    "macOS",
+                    "Linux",
+                    "Chrome OS"
+                ],
+                "downloadUrl":"https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm",
+                "screenshot":[
+                    {
+                        "@type":"ImageObject",
+                        "url":"https://lh3.googleusercontent.com/W8NqUtlmiu2BySR3RkzwEbGzSYG_pu-frns7mFcNxgnnSj1Z4uRApyKYI5iecdquJxk7MhXfzsJKRuXF2pqTNf5klQ=s1600-w1600-h1000",
+                        "caption":"Скриншот расширения Market Ninja"
+                    }
+                ],
+                "author":{
+                    "@type":"Person",
+                    "name":"Roman Koch",
+                    "url":"https://romakoch.com"
+                },
+                "publisher":{
+                    "@id":"https://marketninja.ru/#organization"
+                },
+                "offers":{
+                    "@type":"Offer",
+                    "price":"0",
+                    "priceCurrency":"RUB",
+                    "url":"https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm",
+                    "availability":"https://schema.org/InStock"
+                },
+                "aggregateRating":{
+                    "@type":"AggregateRating",
+                    "ratingValue":"5.0",
+                    "ratingCount":"125"
+                }
+            },
+            {
+                "@type":"VideoObject",
+                "@id":"https://marketninja.ru/#demo-video",
+                "name":"Market Ninja — демо использования расширения",
+                "description":"Видео-обзор возможностей Market Ninja: как парсить цены и собирать данные с Ozon и Wildberries.",
+                "thumbnailUrl":"https://marketninja.ru/assets/img/preview.jpg",
+                "uploadDate":"2025-09-25",
+                "contentUrl":"https://marketninja.ru/assets/vid/video.mov",
+                "embedUrl":"https://www.youtube.com/embed/JqRSYqkRi5E",
+                "publisher":{
+                    "@id":"https://marketninja.ru/#organization"
+                }
+            },
+            {
+                "@type":"BreadcrumbList",
+                "@id":"https://marketninja.ru/#breadcrumbs",
+                "itemListElement":[
+                    {
+                        "@type":"ListItem",
+                        "position":1,
+                        "name":"Главная",
+                        "item":"https://marketninja.ru/"
+                    },
+                    {
+                        "@type":"ListItem",
+                        "position":2,
+                        "name":"🚀  Бесплатный парсинг маркетлпейсов",
+                        "item":"https://marketninja.ru/#index"
+                    }
+                ]
             }
-        }
+        ]
+    }
     </script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -67,12 +141,12 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center space-x-4">
+                    <a href="/" class="flex-shrink-0 flex items-center space-x-4">
                         <div class="w-10 h-10 justify-center">
                             <img src="assets/img/logo.png" alt="logo">
                         </div>
-                        <a href="/" class="text-xl font-bold text-gray-900">Market Ninja</a>
-                    </div>
+                        <span class="text-xl font-bold text-gray-900">Market Ninja</span>
+                    </a>
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -124,7 +198,7 @@
                             Установить для Chrome
                         </a>
                         <a href="#how-it-works" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center">
-                            <i class="fas fa-play mr-2"></i>
+                            <i class="fa fa-question-circle mr-2"></i>
                             Как это работает?
                         </a>
                     </div>
@@ -240,7 +314,7 @@
                     <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-globe text-secondary-600 text-xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Работает на всех сайтах</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Работает на маркетплейсах</h3>
                     <p class="text-gray-600 text-sm">Универсальное решение для сбора данных с Ozon, Wildberries, Lamoda</p>
                 </div>
                 
