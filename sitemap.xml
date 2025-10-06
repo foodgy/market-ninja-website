@@ -15,7 +15,13 @@
 	<url>
 		<loc>https://marketninja.ru/changelog</loc>
 		<lastmod>2025-09-21</lastmod>
-		<changefreq>monthly</changefreq>
+		<changefreq>weekly</changefreq>
 		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://marketninja.ru/privacy</loc>
+		<lastmod>2025-10-06</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.1</priority>
 	</url>
 </urlset>
