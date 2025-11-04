@@ -18,12 +18,6 @@
                     fontFamily: {
                         'inter': ['Inter', 'sans-serif'],
                     },
-                    colors: {
-                        secondary: {
-                            600: '#059669',
-                            700: '#047857'
-                        }
-                    }
                 }
             }
         }
@@ -134,6 +128,12 @@
 
     <!-- Version History Section -->
     <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+        <!-- Breadcrumbs -->
+        <div class="mb-8 text-sm text-gray-500">
+            <a href="/" class="hover:text-blue-600">Главная</a>
+            <span class="mx-2">&raquo;</span>
+            <span>Документация</span>
+        </div>
 
         <!-- Search Input -->
         <div class="mb-6 sticky top-4 z-20">
@@ -149,7 +149,7 @@
             <!-- Table of Contents -->
             <div id="table-of-contents">
                  <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Оглавление</h2>
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Содержание</h2>
                     <ul class="list-decimal text-gray-700 space-y-2 ml-6">
                         <li><a href="#introduction" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Введение</a></li>
                         <li><a href="#installation" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">Установка расширения</a></li>
@@ -168,7 +168,7 @@
             <div id="introduction">
                 <h2 class="text-xl font-bold text-gray-900 my-3">Введение</h2>
                 <p class="text-gray-600 my-3">Расширение <strong>Market Ninja</strong> позволяет собирать данные о товарах с маркетплейсов Ozon, Wildberries и Lamoda. Вы можете использовать его для:</p>
-                <ul class="list-disc ml-4 text-gray-600 space-y-2">
+                <ul class="list-disc ml-6 text-gray-600 space-y-2">
                     <li>Мониторинга цен на товары (например, чтобы узнать, кто из продавцов демпингует).</li>
                     <li>Сбора информации о характеристиках товаров (бренд, размеры, объем, страна производства и т.д.).</li>
                     <li>Анализа ассортимента в категориях, поисковых запросах или брендах.</li>
@@ -181,7 +181,7 @@
             <div id="installation">
                 <h2 class="text-xl font-bold text-gray-900 my-3">Установка расширения</h2>
                 <h3 class="text-lg font-medium text-gray-900 my-3">Как установить</h3>
-                <ol class="list-decimal ml-4 space-y-2">
+                <ol class="list-decimal ml-6 space-y-2">
                     <li>Откройте браузер Google Chrome.</li>
                     <li>Перейдите в интернет-магазин Chrome по <a href="https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm" target="_blank" class="text-blue-600 hover:underline">ссылке на расширение</a>.</li>
                     <li>Нажмите кнопку "Добавить в Chrome".</li>
@@ -189,7 +189,7 @@
                     <li>Дождитесь, пока расширение установится. Вы увидите значок расширения в правом верхнем углу браузера (обычно это пазл, где можно закрепить расширение).</li>
                 </ol>
                 <h3 class="text-lg font-medium text-gray-900 my-3">Проверка установки</h3>
-                <ol class="list-decimal ml-4 space-y-2">
+                <ol class="list-decimal ml-6 space-y-2">
                     <li>Нажмите на значок расширений в Chrome (пазл в правом верхнем углу).</li>
                     <li>В появившемся списке найдите расширение Market Ninja.</li>
                     <li>Закрепите его для быстрого доступа, нажав на значок булавки рядом с ним.</li>
@@ -200,11 +200,11 @@
             <div id="interface">
                 <h2 class="text-xl font-bold text-gray-900 my-3">Интерфейс расширения</h2>
                 <p class="my-3">Когда вы откроете расширение, вы увидите окно с несколькими основными элементами:</p>
-                <ul class="list-disc ml-4 space-y-2">
+                <ul class="list-disc ml-6 space-y-2">
                     <li><strong>Заголовок:</strong> Содержит логотип и название расширения, а также кнопку "Помощь".</li>
                     <li><strong>Информация о странице:</strong> Показывает название страницы, URL, favicon сайта, а также количество доступных для парсинга страниц и товаров. Кнопка с лупой позволяет быстро вернуться к вкладке, на которой было открыто окно расширения.</li>
                     <li><strong>Панель управления:</strong>
-                        <ul class="list-disc ml-4 space-y-2">
+                        <ul class="list-disc ml-6 space-y-2">
                             <li>Выпадающее меню для выбора режима парсинга (быстрый или детальный).</li>
                             <li>Кнопка "Собрать данные" для запуска сбора данных (или "Остановить", если процесс идет).</li>
                             <li>Кнопка "Удалить" для удаления собранных данных.</li>
@@ -237,19 +237,19 @@
                         </ul>
                     </li>
                     <li><strong>Категория:</strong> Страница со списком товаров в определенной категории (например, "Женская обувь").
-                        <ul class="list-disc ml-4 space-y-2">
+                        <ul class="list-disc ml-6 space-y-2">
                             <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/detyam/dlya-malchikov/odezhda/verhnyaya-odezhda" target="_blank" class="text-blue-600 hover:underline">.../catalog/detyam/...</a></li>
                             <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/c/1419/clothes-premium-men-kardigani/" target="_blank" class="text-blue-600 hover:underline">.../c/1419/clothes...</a></li>
                         </ul>
                     </li>
                     <li><strong>Поиск:</strong> Результаты поиска по ключевому слову (например, "кроссовки Nike").
-                        <ul class="list-disc ml-4 space-y-2">
+                        <ul class="list-disc ml-6 space-y-2">
                             <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ноутбук" target="_blank" class="text-blue-600 hover:underline">.../search.aspx?search=...</a></li>
                             <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/catalogsearch/result/?q=футболка%20женская" target="_blank" class="text-blue-600 hover:underline">.../catalogsearch/result/?q=...</a></li>
                         </ul>
                     </li>
                     <li><strong>Страница бренда:</strong> Список товаров определенного бренда (например, все товары Adidas).
-                        <ul class="list-disc ml-4 space-y-2">
+                        <ul class="list-disc ml-6 space-y-2">
                             <li>Пример URL на Wildberries: <a href="https://www.wildberries.ru/brands/lassie" target="_blank" class="text-blue-600 hover:underline">.../brands/lassie</a></li>
                             <li>Пример URL на Lamoda: <a href="https://www.lamoda.ru/b/25725/brand-lassie/" target="_blank" class="text-blue-600 hover:underline">.../b/25725/brand-lassie/</a></li>
                         </ul>
@@ -275,6 +275,7 @@
                         <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
                         <tr><td>Цена</td><td>Текущая цена товара.</td></tr>
                         <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой (например, Ozon Карта).</td></tr>
+                        <tr><td>Скидка</td><td>Размер скидки.</td></tr>
                         <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
                         <tr><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
                         <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
@@ -293,6 +294,7 @@
                         <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
                         <tr><td>Цена</td><td>Текущая цена товара (со скидкой СПП).</td></tr>
                         <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой (WB Кошелек).</td></tr>
+                        <tr><td>Скидка</td><td>Размер скидки.</td></tr>
                         <tr><td>Цвет</td><td>Цвет товара.</td></tr>
                         <tr><td>Акция</td><td>Текст рекламной акции.</td></tr>
                         <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
@@ -303,6 +305,8 @@
                         <tr><td>Видеообложка</td><td>Ссылка на видеообложку.</td></tr>
                         <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
                         <tr><td>URL</td><td>Полный URL карточки товара.</td></tr>
+                        <tr><td>Галерея</td><td>Ссылки на все картинки из галереи картчоки товара.</td></tr>
+                        <tr><td>Описание товара</td><td>Текстовое описани товара (не rich-контент).</td></tr>
                     </tbody>
                 </table>
 
@@ -319,11 +323,13 @@
                         <tr><td>Старая цена</td><td>Цена до применения скидок (перечеркнутая).</td></tr>
                         <tr><td>Цена</td><td>Текущая цена товара.</td></tr>
                         <tr><td>Спец. цена</td><td>Цена с дополнительной скидкой.</td></tr>
+                        <tr><td>Скидка</td><td>Размер скидки.</td></tr>
                         <tr><td>Рейтинг</td><td>Средний рейтинг товара по отзывам (1-5).</td></tr>
                         <tr><td>Отзывы</td><td>Количество отзывов о товаре.</td></tr>
                         <tr><td>Количество</td><td>Общее количество товара на складах.</td></tr>
                         <tr><td>Картинка</td><td>URL основного изображения товара.</td></tr>
                         <tr><td>URL</td><td>Полный URL карточки товара.</td></tr>
+                        <tr><td>Галерея</td><td>Ссылки на все картинки из галереи картчоки товара.</td></tr>
                     </tbody>
                 </table>
                     
@@ -343,6 +349,11 @@
                         <tr><td>Продавец</td><td>Наименование продавца.</td></tr>
                         <tr><td>Вопросы</td><td>Количество вопросов о товаре.</td></tr>
                         <tr><td>Страна производитель</td><td>Страна производства товара.</td></tr>
+                        <tr><td>Галерея</td><td>Ссылки на все картинки из галереи картчоки товара.</td></tr>
+                        <tr><td>Описание товара</td><td>Текстовое описани товара (не rich-контент).</td></tr>
+                        <tr><td>Rich-контент</td><td>Индикатор наличия rich-контента у карточки товара.</td></tr>
+                        <tr><td>Rich-описание</td><td>Текст из rich-контента карточки товара.</td></tr>
+                        <tr><td>Rich-галерея</td><td>Картинки из rich-контента карточки товара.</td></tr>
                     </tbody>
                 </table>
 
@@ -357,6 +368,7 @@
                         <tr><td>Состав</td><td>Состав товара.</td></tr>
                         <tr><td>Страна производитель</td><td>Страна производства товара.</td></tr>
                         <tr><td>Категория</td><td>Категория, в которой размещен товар.</td></tr>
+                        <tr><td>Rich-контент</td><td>Индикатор наличия rich-контента у карточки товара.</td></tr>
                     </tbody>
                 </table>
 
@@ -403,7 +415,7 @@
             <div id="usage-examples">
                 <h2 class="text-xl font-bold text-gray-900 my-3">Примеры использования</h2>
                 <h3 class="text-lg font-medium text-gray-900 my-3">Пример 1: Быстрый сбор цен по категории</h3>
-                <ol class="list-decimal ml-4 space-y-2">
+                <ol class="list-decimal ml-6 space-y-2">
                     <li>Перейдите в нужную категорию товаров на маркетплейсе.</li>
                     <li>Откройте расширение, выберите "Быстрый сбор данных" и нажмите "Собрать данные".</li>
                     <li>Через несколько минут вы получите таблицу со всеми товарами из категории, их ценами, рейтингом и т.д.</li>
@@ -411,7 +423,7 @@
                 </ol>
 
                 <h3 class="text-lg font-medium text-gray-900 my-3">Пример 2: Детальный сбор характеристик</h3>
-                <ol class="list-decimal ml-4 space-y-2">
+                <ol class="list-decimal ml-6 space-y-2">
                     <li>Найдите интересующий вас товар или небольшую группу товаров.</li>
                     <li>Откройте расширение, выберите "Детальный сбор данных" и запустите процесс.</li>
                     <li>Расширение зайдет на каждую карточку товара и соберет полную информацию: артикул поставщика, состав, страну производства и т.д.</li>
@@ -435,7 +447,7 @@
             <!-- Tips -->
             <div id="tips">
                 <h2 class="text-xl font-bold text-gray-900 my-3">Полезные советы</h2>
-                <ul class="list-disc ml-4 space-y-2">
+                <ul class="list-disc ml-6 space-y-2">
                     <li><strong>Организация данных:</strong> Сохраняйте CSV-файлы с указанием даты и типа страницы (например, <strong>krossovki_2025-04-29.csv</strong>), чтобы не запутаться.</li>
                     <li><strong>Мониторинг цен:</strong> Парсите одну и ту же страницу раз в неделю, чтобы отслеживать изменения цен. Сравнивайте CSV-файлы в Excel.</li>
                 </ul>
