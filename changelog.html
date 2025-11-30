@@ -138,27 +138,54 @@
 
         <div class="space-y-16">
             <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
-                <p class="mb-3">Готовим два обновления:</p>
+                <p class="mb-3">В разработке:</p>
                 <ul class="list-disc ml-6 space-y-2">
-                    <li>Появление настроек, которые позволят добавлять в таблицу данных любые характеристики товаров;</li>
-                    <li>Возможность парсить данные по списку URL.</li>
+                    <li>Возможность парсить данные товаров по списку URL.</li>
                 </ul>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Версия 4.0.0 ✨ Кастомные колонки!</h2>
+                <p class="mb-3">Теперь вы можете парсить практически любую характеристику товара! Добавляйте в таблицу состав, материал, гарантийный срок, габариты упаковки и многое другое. Для </p>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
+                    <p>На данный момент можно создать не более <strong>3</strong> колонок с произвольными характеристиками товара. Это временное ограничение.</p>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 my-3">Как это работает?</h3>
+                <p class="mb-3">Добавить новую колонку очень просто. Следуйте этой короткой инструкции:</p>
+                <h4 class="text-md font-medium text-gray-900 my-3">Шаг 1: Найдите название характеристики</h4>
+                <ul class="list-disc mt-2 ml-6 space-y-2">
+                    <li>Прежде всего, нужно узнать, как называется искомая характеристика на сайте маркетплейса.</li>
+                    <li>Откройте страницу любого товара на <strong>Wildberries</strong>, <strong>Ozon</strong> или Lamoda</strong>.</li>
+                    <li>Найдите раздел с характеристиками (обычно называется &laquo;Характеристики&raquo; или &laquo;Подробнее о товаре&raquo;).</li>
+                    <li>Найдите нужную вам характеристику (например, &laquo;Материал подкладки&raquo;) и скопируйте её название в точности так, как оно написано на сайте.</li>
+                </ul>
+                <h4 class="text-md font-medium text-gray-900 my-3">Шаг 2: Добавьте новую колонку в настройках</h4>
+                <ul class="list-disc mt-2 ml-6 space-y-2">
+                    <li>Откройте расширение и нажмите на кнопку <strong>⚙️ Настройки</strong> в правом верхнем углу.</li>
+                    <li>На странице настроек нажмите синюю кнопку &laquo;Добавить колонку&raquo;.</li>
+                    <li>В появившемся блоке:
+                        <ul class="list-disc mt-2 ml-6 space-y-2">
+                            <li><strong>Название колонки в таблице</strong>: Придумайте короткое имя для вашей новой колонки (например, &laquo;Подкладка&raquo;).</li>
+                            <li><strong>Ключ для...</strong>: Вставьте скопированное ранее название характеристики в поле для соответствующего маркетплейса. Названия на разных сайтах могут отличаться&nbsp;&mdash; это нормально!</li>
+                        </ul>
+                    </li>
+                    <li>Нажмите зелёную кнопку &laquo;Сохранить&raquo;.</p>
+                </ul>
+                <p class="my-3">Готово! Теперь при следующем парсинге в вашей таблице появится новая колонка с нужными данными.</p>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
+                    <p>Сбор данных для кастомных колонок доступен:</p>
+                    <ul class="list-disc mt-2 ml-6 space-y-2">
+                        <li>При парсинге страниц карточек товаров;</li>
+                        <li>В режиме <strong>детального парсинга (Deep Parsing)</strong> страниц категорий, результатов поиска, бренда или продавца.</li>
+                    </ul>                        
+                </div>
             </div>
 
             <div>
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Версия 3.9.1</h2>
                 <ul class="list-disc ml-6 space-y-2">
                     <li>Исправлен сбор данных некоторых каталогов <strong>Wildberries</strong>, например <a href="https://www.wildberries.ru/catalog/detyam/tovary-dlya-malysha/peredvizhenie" target="_blank" class="text-blue-600 hover:underline">таких</a> или <a href="https://www.wildberries.ru/catalog/krasota/aksessuary" target="_blank" class="text-blue-600 hover:underline">таких</a>;</li>
-                    <li>Теперь для парсинга доступны региональные зеркала <strong>Wildberries</strong> и соответсвующие валюты:
-                    <ul class="list-disc mt-2 ml-6 space-y-2">
-                        <li>wildberries.am</li>
-                        <li>wildberries.by</li>
-                        <li>wildberries.kg</li>
-                        <li>wildberries.kz</li>
-                        <li>wildberries.tj</li>
-                        <li>wildberries.uz</li>
-                    </ul>
-                    </li>
+                    <li>Теперь для парсинга доступны региональные зеркала <strong>Wildberries</strong> и соответсвующие валюты: wildberries.am, wildberries.by, wildberries.kg, wildberries.kz, wildberries.tj, wildberries.uz.</li>
                 </ul>
             </div>
 
