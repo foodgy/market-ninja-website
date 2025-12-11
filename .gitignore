@@ -1,0 +1,10 @@
+# Development
+.DS_Store
+*.swp
+*.swo
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
