@@ -29,7 +29,7 @@ export default function Header() {
                         <Link href="/" className="flex items-center space-x-3" onClick={closeMenu}>
                             <div className="w-9 h-9 relative">
                                 <Image
-                                    src="/assets/img/logo.png"
+                                    src="/images/logo.png"
                                     alt={CONFIG.SITE_NAME}
                                     width={60}
                                     height={60}
