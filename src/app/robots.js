@@ -5,7 +5,10 @@ export default function robots() {
         rules: {
             userAgent: '*',
             allow: '/',
-            //disallow: '/private/',
+            disallow: [
+                '/*?',
+                '/*.pdf$'
+            ],
         },
         sitemap: `${LINKS.SITE_URL}/sitemap.xml`,
     };
