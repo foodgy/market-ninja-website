@@ -27,12 +27,12 @@ export default function DataPoints() {
                         <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
                             <FontAwesomeIcon icon={faWarehouse} />
                         </div>
-                        <h3 className="font-bold text-slate-900 mb-3">Склад</h3>
+                        <h3 className="font-bold text-slate-900 mb-3">Контент</h3>
                         <ul className="text-sm text-slate-600 space-y-2">
-                            <li>&bull; Остатки (шт.)</li>
-                            <li>&bull; Тип склада (FBO/FBS)</li>
-                            <li>&bull; Логистика</li>
-                            <li>&bull; Размеры в наличии</li>
+                            <li>&bull; Название / описание</li>
+                            <li>&bull; Галерея товара</li>
+                            <li>&bull; Rich-контент</li>
+                            <li>&bull; Ссылки на медиа</li>
                         </ul>
                     </div>
                     <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100">
@@ -44,7 +44,7 @@ export default function DataPoints() {
                             <li>&bull; Бренд / Категория</li>
                             <li>&bull; Рейтинг / Отзывы</li>
                             <li>&bull; Артикул (SKU)</li>
-                            <li>&bull; Ссылки на медиа</li>
+                            <li>&bull; Размеры в наличии</li>
                         </ul>
                     </div>
                     <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100">

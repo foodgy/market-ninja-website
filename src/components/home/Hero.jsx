@@ -15,7 +15,7 @@ export default function Home() {
                         <span className="block text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-emerald-500">который работает</span>
                     </h1>
                     <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                        Парсер для Wildberries, Ozon и Lamoda прямо в вашем браузере. Выгружайте цены, остатки и SEO-данные в Excel в один клик.
+                        Парсер для Wildberries, Ozon и Lamoda прямо в вашем браузере. Выгружайте информацию о товарах в Excel в один клик.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
