@@ -1,0 +1,38 @@
+{
+  "name": "market-ninja-website",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Roman Koch",
+    "email": "mail@fromakoch.com",
+    "url": "https://romakoch.com"
+  },
+  "homepage": "https://marketninja.ru",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "@next/third-parties": "^16.1.0",
+    "classnames": "^2.5.1",
+    "gray-matter": "^4.0.3",
+    "next": "16.1.0",
+    "next-mdx-remote": "^5.0.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.0",
+    "tailwindcss": "^4",
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}
