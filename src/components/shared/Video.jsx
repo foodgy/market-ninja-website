@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -19,14 +19,30 @@ export default function Video({
 }) {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            const isTouch = (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0));
+
+            setIsMobile(isTouch);
+        };
+
+        checkMobile();
+    }, []);
 
     const shouldShowNativeControls = (() => {
         if (autoPlay) return false;
         if (!controls) return false;
+        if (isMobile) return true;
         return isPlaying;
     })();
 
     const handlePlayClick = useCallback(() => {
+        if (isMobile && controls) return;
+
         const video = videoRef.current;
         if (!video) return;
 
@@ -40,7 +56,10 @@ export default function Video({
         } else {
             video.pause();
         }
-    }, [shouldShowNativeControls]);
+    }, [shouldShowNativeControls, isMobile, controls]);
+
+    const showOverlay = !isMobile || !controls;
+
 
     return (
         <div
@@ -52,7 +71,7 @@ export default function Video({
         >
             <div
                 className="aspect-video bg-slate-100 relative cursor-pointer"
-                onClick={handlePlayClick}
+                onClick={showOverlay ? handlePlayClick : undefined}
             >
                 <video
                     ref={videoRef}
@@ -72,17 +91,19 @@ export default function Video({
                 >
                     <source src={`${src}#t=0.1`} type="video/mp4" />
                 </video>
-
-                <div
-                    className={classNames(
-                        'absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 border-none outline-hidden pointer-events-none',
-                        isPlaying ? "opacity-0" : "opacity-100 hover:bg-black/30"
-                    )}
-                >
-                    <div className="flex size-20 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
-                        <FontAwesomeIcon icon={faPlay} className="ml-1 text-4xl text-gray-600" />
+                
+                {showOverlay && (
+                    <div
+                        className={classNames(
+                            'absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 border-none outline-hidden pointer-events-none',
+                            isPlaying ? "opacity-0" : "opacity-100 hover:bg-black/30"
+                        )}
+                    >
+                        <div className="flex size-20 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
+                            <FontAwesomeIcon icon={faPlay} className="ml-1 text-4xl text-gray-600" />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );
