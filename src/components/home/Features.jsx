@@ -28,6 +28,7 @@ export default function Features() {
                         <Video
                             src="/videos/demo-plp-listing-data.mp4"
                             autoPlay={false}
+                            controls={false}
                         />
                     </div>
                 </div>
@@ -57,6 +58,7 @@ export default function Features() {
                         <Video
                             src="/videos/demo-export.mp4"
                             autoPlay={false}
+                            controls={false}
                         />
                     </div>
                 </div>
@@ -79,6 +81,7 @@ export default function Features() {
                         <Video
                             src="/videos/demo-custom-attributes.mp4"
                             autoPlay={false}
+                            controls={false}
                         />
                     </div>
                 </div>
