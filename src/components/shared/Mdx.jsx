@@ -8,13 +8,13 @@ export const MdxComponents = {
         const isExternal = href && (href.startsWith('http') || href.startsWith('//'));
         if (isExternal) {
             return (
-                <a href={href} className="text-blue-600 hover:no-underline" target="_blank" rel="noopener noreferrer" {...props}>
+                <a href={href} className="font-normal text-blue-600 no-underline border-b border-blue-600 hover:border-0" target="_blank" rel="noopener noreferrer" {...props}>
                     {children}
                 </a>
             );
         }
         return (
-            <Link href={href} className="text-blue-600 hover:no-underline" {...props}>
+            <Link href={href} className="font-normal text-blue-600 no-underline border-b border-blue-600 hover:border-0" {...props}>
                 {children}
             </Link>
         );

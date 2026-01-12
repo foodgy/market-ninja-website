@@ -1,14 +1,11 @@
 import { Inter } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google';
 import classNames from 'classnames';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import FontAwesomeConfig from '@/components/FontAwesomeConfig';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CONFIG, LINKS } from '@/constants';
 import './styles/index.css';
-
-config.autoAddCss = false;
 
 export const metadata = {
     metadataBase: new URL(LINKS.SITE_URL),
@@ -38,6 +35,7 @@ export default function RootLayout({ children }) {
                     inter.variable
                 )}
             >
+                <FontAwesomeConfig />
                 <Header />
                 {children}
                 <Footer />

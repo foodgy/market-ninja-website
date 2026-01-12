@@ -54,7 +54,7 @@ export default function Header() {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={toggleMenu}
-                            className="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-slate-100 transition focus:outline-none"
+                            className="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-slate-100 transition-all focus:outline-none"
                             aria-expanded={isMobileMenuOpen}
                             aria-label="Navigation"
                         >

@@ -39,7 +39,7 @@ export default function Home() {
                             1 000+ установок
                         </div>
                         <div className="flex items-center gap-1.5">
-                            <FontAwesomeIcon icon={faStar} className="text-amber-400 text-xs" />
+                            <FontAwesomeIcon icon={faStar} className="text-yellow-400 text-xs" />
                             5.0 рейтинг
                         </div>
                     </div>
@@ -48,7 +48,7 @@ export default function Home() {
                 <div className="relative max-w-5xl mx-auto mt-8">
                     <Video
                         src="/videos/demo-hero.mp4"
-                        poster="/images/poster_main.jpg"
+                        poster="/images/preview.jpg"
                         autoPlay={true}
                         loop={true}
                     />
