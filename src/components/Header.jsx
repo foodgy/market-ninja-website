@@ -37,7 +37,7 @@ export default function Header() {
                                     priority
                                 />
                             </div>
-                            <span className="font-bold text-xl tracking-tight text-slate-900 hidden sm:block">
+                            <span className="font-semibold text-xl tracking-tight text-slate-900">
                                 {CONFIG.SITE_NAME}
                             </span>
                         </Link>

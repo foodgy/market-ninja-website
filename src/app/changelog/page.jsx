@@ -66,7 +66,7 @@ export default async function ChangelogPage() {
 
                             {/* Блок "В разработке" (Хардкод или отдельный MDX) */}
                             <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-16">
-                                <p className="font-bold mb-2">В разработке:</p>
+                                <p className="font-semibold mb-2">В разработке:</p>
                                 <ul className="list-disc ml-6 space-y-1 text-gray-700">
                                     <li>Возможность парсить данные товаров по списку URL;</li>
                                     <li>Выгрузка сразу всех характеристик товара;</li>
@@ -84,7 +84,7 @@ export default async function ChangelogPage() {
                                         className="scroll-mt-28 border-b border-gray-100 pb-16 last:border-0"
                                     >
                                         <div className="mb-6">
-                                            <h2 className="text-2xl font-bold text-gray-900">{log.title}</h2>
+                                            <h2 className="text-2xl font-semibold text-gray-900">{log.title}</h2>
                                         </div>
 
                                         <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-600">

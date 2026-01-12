@@ -1,10 +1,10 @@
 {
   "name": "market-ninja-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "author": {
     "name": "Roman Koch",
-    "email": "mail@fromakoch.com",
+    "email": "mail@romakoch.com",
     "url": "https://romakoch.com"
   },
   "homepage": "https://marketninja.ru",

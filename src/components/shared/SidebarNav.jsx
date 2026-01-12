@@ -7,10 +7,8 @@ export default function SidebarNav({
     menuGroups,
     labelField = 'title'
 }) {
-    // Собираем все ID для слежения (flat map)
     const allIds = menuGroups.flatMap(group => group.items.map(item => item.slug));
 
-    // Используем наш хук
     const { activeId, scrollTo } = useScrollSpy(allIds, 100);
 
     const handleClick = (e, slug) => {
@@ -22,7 +20,7 @@ export default function SidebarNav({
         <nav className="space-y-8">
             {menuGroups.map((group) => (
                 <div key={group.name}>
-                    <h3 className="font-bold text-slate-500 mb-3 uppercase text-xs px-2 border-l-2 border-transparent">
+                    <h3 className="font-semibold text-slate-500 mb-3 uppercase text-xs px-2 border-l-2 border-transparent">
                         {group.name}
                     </h3>
                     <div className="space-y-1">

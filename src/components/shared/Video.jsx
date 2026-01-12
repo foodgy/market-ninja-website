@@ -1,4 +1,3 @@
-// src/components/shared/Video.jsx
 'use client';
 
 import { useRef, useState, useCallback } from 'react';
@@ -15,38 +14,33 @@ export default function Video({
     playsInline = true,
     controlsList = 'nodownload',
     autoPlay = false,
-    controls = true, // <--- Новый проп: разрешены ли контролы в принципе
+    controls = true,
     ...rest
 }) {
     const videoRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(autoPlay);
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    const togglePlay = useCallback(() => {
+    const shouldShowNativeControls = (() => {
+        if (autoPlay) return false;
+        if (!controls) return false;
+        return isPlaying;
+    })();
+
+    const handleWrapperClick = useCallback(() => {
         const video = videoRef.current;
         if (!video) return;
 
+        if (shouldShowNativeControls) return;
+
         if (video.paused) {
             video.play().catch((err) => {
-                console.warn('Автовоспроизведение заблокировано или ошибка:', err);
+                console.warn('Playback failed:', err);
                 setIsPlaying(false);
             });
         } else {
             video.pause();
         }
-    }, []);
-
-    // Логика отображения нативных контролов
-    const shouldShowNativeControls = (() => {
-        // 1. Если это AutoPlay видео -> контролы скрыты всегда
-        if (autoPlay) return false;
-
-        // 2. Если контролы глобально отключены пропом -> скрыты
-        if (!controls) return false;
-
-        // 3. Если видео на паузе -> скрываем (чтобы показать наш оверлей с кнопкой Play)
-        //    Если видео играет -> показываем (чтобы дать пользователю управление)
-        return isPlaying;
-    })();
+    }, [shouldShowNativeControls]);
 
     return (
         <div
@@ -56,49 +50,39 @@ export default function Video({
                 className
             )}
         >
-            <div className="aspect-video bg-slate-100 relative">
+            <div
+                className="aspect-video bg-slate-100 relative cursor-pointer"
+                onClick={handleWrapperClick}
+            >
                 <video
                     ref={videoRef}
-                    className={classNames(
-                        "size-full object-cover",
-                        // Добавляем курсор pointer только если контролов нет (чтобы кликнуть для старта)
-                        !shouldShowNativeControls ? "cursor-pointer" : ""
-                    )}
-                    src={src}
+                    className="size-full object-cover"
                     poster={poster}
                     loop={loop}
                     muted={muted}
                     playsInline={playsInline}
                     controlsList={controlsList}
                     autoPlay={autoPlay}
-                    
-                    // Динамическое управление атрибутом controls
                     controls={shouldShowNativeControls}
-
-                    // Важно: suppressHydrationWarning нужен, так как autoPlay может отличаться на сервере/клиенте
-                    suppressHydrationWarning={true} 
-
-                    // Если показаны нативные контролы, мы убираем наш onClick, 
-                    // чтобы браузер сам управлял паузой/кликами по таймлайну
-                    onClick={shouldShowNativeControls ? undefined : togglePlay}
-                    
-                    // Синхронизация стейта
+                    suppressHydrationWarning={true}
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
 
                     {...rest}
-                />
+                >
+                    <source src={`${src}#t=0.1`} type="video/mp4" />
+                </video>
 
-                {/* Оверлей с кнопкой Play */}
-                {/* Рендерим его только если видео НЕ играет ИЛИ (если это autoplay но почему-то встало на паузу) */}
-                {/* Логика простая: скрываем, когда играет */}
+                {/* Оверлей */}
                 <button
                     type="button"
-                    onClick={togglePlay}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleWrapperClick();
+                    }}
                     aria-label={isPlaying ? "Пауза" : "Воспроизвести видео"}
                     className={classNames(
-                        "absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 cursor-pointer border-none outline-hidden",
-                        // Скрываем оверлей, если видео играет
+                        "absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 border-none outline-hidden",
                         isPlaying
                             ? "opacity-0 pointer-events-none"
                             : "opacity-100 hover:bg-black/30"

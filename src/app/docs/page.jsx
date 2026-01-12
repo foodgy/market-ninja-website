@@ -72,11 +72,11 @@ export default async function Docs() {
 									>
 										<div className="mb-8">
 											<div className="flex items-center gap-3 text-blue-600 mb-3">
-												<span className="text-xs font-bold uppercase tracking-wider bg-blue-50 px-2 py-1 rounded-md">
+												<span className="text-xs font-semibold uppercase tracking-wider bg-blue-50 px-2 py-1 rounded-md">
 													{item.category}
 												</span>
 											</div>
-											<h2 className="text-3xl font-bold text-gray-900">{item.title}</h2>
+											<h2 className="text-3xl font-semibold text-gray-900">{item.title}</h2>
 										</div>
 
 										<div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-600 prose-img:rounded-xl">

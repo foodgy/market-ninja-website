@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Platforms() {
     return (
-        <section className="py-12 bg-white border-b border-slate-100">
+        <section className="py-20 border border-slate-200 bg-slate-50">
             <div
                 className="max-w-7xl mx-auto px-4 text-center">
                 <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-8">
@@ -13,7 +13,6 @@ export default function Platforms() {
                 <div
                     className={classNames(
                         'flex flex-wrap justify-center items-center gap-10 md:gap-16',
-                        'grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200'
                     )}
                 >
                     <Image
@@ -35,7 +34,7 @@ export default function Platforms() {
                         width={500}
                         height={110}
                         alt="Lamoda"
-                        className="h-8 md:h-8 w-auto opacity-80"
+                        className="h-8 md:h-8 w-auto"
                     />
                 </div>
             </div>

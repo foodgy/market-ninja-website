@@ -15,7 +15,7 @@ export default function Home() {
                         <span className="block text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-emerald-500">который работает</span>
                     </h1>
                     <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                        Парсер для Wildberries, Ozon и Lamoda прямо в вашем браузере. Выгружайте информацию о товарах в Excel в один клик.
+                        Парсер для Wildberries, Ozon и Lamoda прямо в вашем браузере
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -23,7 +23,10 @@ export default function Home() {
                             href={LINKS.CHROME_STORE}
                             target="_blank"
                             className={classNames(
-                                'w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-blue-500/20 text-lg'
+                                'flex items-center justify-center gap-2',
+                                'px-8 py-4 text-lg font-semibold text-white rounded-xl',
+                                'bg-blue-600 hover:bg-blue-700 transition',
+                                'shadow-lg shadow-blue-500/20',
                             )}
                             rel="noopener noreferrer"
                         >

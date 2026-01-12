@@ -26,8 +26,7 @@ export const MdxComponents = {
     pre: (props) => (
         <pre {...props} className="bg-slate-900 text-slate-50 p-4 rounded-xl overflow-x-auto my-6" />
     ),
-    // Кастомные компоненты
-    div: (props) => <div {...props} />, // Для совместимости
+    div: (props) => <div {...props} />,
     Video: (props) => <div className="my-8 not-prose"><Video {...props} /></div>,
     Callout,
     Collapsible,
