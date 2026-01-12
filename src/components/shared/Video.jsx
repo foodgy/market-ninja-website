@@ -26,7 +26,7 @@ export default function Video({
         return isPlaying;
     })();
 
-    const handleWrapperClick = useCallback(() => {
+    const handlePlayClick = useCallback(() => {
         const video = videoRef.current;
         if (!video) return;
 
@@ -52,7 +52,7 @@ export default function Video({
         >
             <div
                 className="aspect-video bg-slate-100 relative cursor-pointer"
-                onClick={handleWrapperClick}
+                onClick={shouldShowNativeControls ? undefined : handlePlayClick}
             >
                 <video
                     ref={videoRef}
@@ -73,25 +73,16 @@ export default function Video({
                     <source src={`${src}#t=0.1`} type="video/mp4" />
                 </video>
 
-                {/* Оверлей */}
-                <button
-                    type="button"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleWrapperClick();
-                    }}
-                    aria-label={isPlaying ? "Пауза" : "Воспроизвести видео"}
+                <div
                     className={classNames(
-                        "absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 border-none outline-hidden",
-                        isPlaying
-                            ? "opacity-0 pointer-events-none"
-                            : "opacity-100 hover:bg-black/30"
+                        'absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 transition-all duration-300 border-none outline-hidden pointer-events-none',
+                        isPlaying ? "opacity-0" : "opacity-100 hover:bg-black/30"
                     )}
                 >
                     <div className="flex size-20 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
                         <FontAwesomeIcon icon={faPlay} className="ml-1 text-4xl text-gray-600" />
                     </div>
-                </button>
+                </div>
             </div>
         </div>
     );
