@@ -30,17 +30,13 @@ export default function Video({
         const video = videoRef.current;
         if (!video) return;
 
-        if (shouldShowNativeControls) return;
-
         if (video.paused) {
             video.play().catch((err) => {
                 console.warn('Playback failed:', err);
                 setIsPlaying(false);
             });
-        } else {
-            video.pause();
         }
-    }, [shouldShowNativeControls]);
+    }, []);
 
     return (
         <div
