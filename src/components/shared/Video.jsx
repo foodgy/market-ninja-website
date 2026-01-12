@@ -30,13 +30,17 @@ export default function Video({
         const video = videoRef.current;
         if (!video) return;
 
+        if (shouldShowNativeControls) return;
+
         if (video.paused) {
             video.play().catch((err) => {
                 console.warn('Playback failed:', err);
                 setIsPlaying(false);
             });
+        } else {
+            video.pause();
         }
-    }, []);
+    }, [shouldShowNativeControls]);
 
     return (
         <div
@@ -48,7 +52,7 @@ export default function Video({
         >
             <div
                 className="aspect-video bg-slate-100 relative cursor-pointer"
-                onClick={shouldShowNativeControls ? undefined : handlePlayClick}
+                onClick={handlePlayClick}
             >
                 <video
                     ref={videoRef}
