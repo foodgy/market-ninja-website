@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { useCallback,useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { Menu, X } from 'lucide-react';
+
 import { CONFIG } from '@/constants';
 
 const NAV_ITEMS = [
@@ -58,7 +59,7 @@ export default function Header() {
                             aria-expanded={isMobileMenuOpen}
                             aria-label="Navigation"
                         >
-                            <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} className="text-xl w-5 h-5" />
+                            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
                         </button>
                     </div>
                 </div>

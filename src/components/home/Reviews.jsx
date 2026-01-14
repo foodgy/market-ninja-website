@@ -1,7 +1,8 @@
-import classNames from 'classnames';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+
+import classNames from 'classnames';
+import { Star } from 'lucide-react';
+
 import { LINKS } from '@/constants';
 
 const REVIEWS = [
@@ -39,9 +40,11 @@ export default function Reviews() {
         return (
             <div className={className}>
                 {Array.from({ length: count }).map((_, i) => (
-                    <FontAwesomeIcon
+                    <Star
                         key={i}
-                        icon={faStar}
+                        size={14}
+                        strokeWidth={0}
+                        fill="currentColor"
                         className='text-yellow-400'
                     />
                 ))}

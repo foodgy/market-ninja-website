@@ -1,5 +1,4 @@
-// src/hooks/useScrollSpy.js
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function useScrollSpy(ids, offset = 100) {
     const [activeId, setActiveId] = useState('');
@@ -7,15 +6,12 @@ export function useScrollSpy(ids, offset = 100) {
     const timeoutRef = useRef(null);
 
     useEffect(() => {
-        // Защита от отсутствия window (SSR)
         if (typeof window === 'undefined') return;
 
         const observer = new IntersectionObserver(
             (entries) => {
                 if (isClickedRef.current) return;
                 
-                // Находим элемент, который наиболее видим на экране
-                // или первый пересекший границу
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setActiveId(entry.target.id);
@@ -23,9 +19,6 @@ export function useScrollSpy(ids, offset = 100) {
                 });
             },
             {
-                // rootMargin сдвигает область видимости. 
-                // '-100px 0px -60% 0px' означает, что элемент считается активным, 
-                // когда он находится в верхней части экрана
                 rootMargin: `-${offset}px 0px -60% 0px`, 
                 threshold: 0
             }
@@ -46,14 +39,11 @@ export function useScrollSpy(ids, offset = 100) {
         isClickedRef.current = true;
         setActiveId(id);
 
-        // Расчет позиции с учетом offset
         const y = element.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: y, behavior: 'smooth' }); // smooth лучше чем auto для UX
 
-        // Очистка предыдущего таймера
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         
-        // Снимаем блокировку чуть позже, чем закончится анимация скролла
         timeoutRef.current = setTimeout(() => {
             isClickedRef.current = false;
         }, 800);

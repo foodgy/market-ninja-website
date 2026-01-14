@@ -1,12 +1,14 @@
-import { getAllChangelogs, groupChangelogByYear } from '@/lib/changelog';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+
+import remarkGfm from 'remark-gfm';
+
 import { MdxComponents } from '@/components/shared/Mdx';
-import SidebarNav from '@/components/shared/SidebarNav';
 import MobileNav from '@/components/shared/MobileNav';
-import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
+import SidebarNav from '@/components/shared/SidebarNav';
 import { LINKS } from '@/constants';
+import { getAllChangelogs, groupChangelogByYear } from '@/lib/changelog';
+import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
 
 export const metadata = {
     title: 'История изменений',
@@ -22,7 +24,6 @@ export default async function ChangelogPage() {
 
     const logs = await getAllChangelogs();
 
-    // Группируем логи для меню (например: "2025 год", "2024 год")
     const menuGroups = groupChangelogByYear(logs);
 
     return (
@@ -36,21 +37,17 @@ export default async function ChangelogPage() {
             <div className="bg-white min-h-screen pt-20 pb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* Мобильная навигация */}
                     <MobileNav menuGroups={menuGroups} labelField="label" />
 
                     <div className="flex flex-col md:flex-row gap-12 py-6 md:py-10">
 
-                        {/* Левая колонка: Сайдбар */}
                         <aside className="hidden md:block w-64 shrink-0">
                             <div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 custom-scrollbar">
                                 <SidebarNav menuGroups={menuGroups} labelField="label" />
                             </div>
                         </aside>
 
-                        {/* Правая колонка: Контент */}
                         <main className="flex-1 min-w-0">
-                            {/* Хлебные крошки */}
                             <div className="mb-8 text-sm text-gray-500">
                                 <Link href="/" className="hover:text-blue-600">Главная</Link>
                                 <span className="mx-2 text-gray-400">/</span>
@@ -64,7 +61,6 @@ export default async function ChangelogPage() {
                                 </p>
                             </div>
 
-                            {/* Блок "В разработке" (Хардкод или отдельный MDX) */}
                             <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-16">
                                 <p className="font-semibold mb-2">В разработке:</p>
                                 <ul className="list-disc ml-6 space-y-1 text-gray-700">
@@ -75,7 +71,6 @@ export default async function ChangelogPage() {
                                 </ul>
                             </div>
 
-                            {/* Список версий */}
                             <div className="space-y-20">
                                 {logs.map((log) => (
                                     <article

@@ -1,12 +1,14 @@
-import { getAllDocs, groupDocsByCategory } from '@/lib/docs';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+
+import remarkGfm from 'remark-gfm';
+
 import { MdxComponents } from '@/components/shared/Mdx';
-import SidebarNav from '@/components/shared/SidebarNav';
 import MobileNav from '@/components/shared/MobileNav';
-import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
+import SidebarNav from '@/components/shared/SidebarNav';
 import { LINKS } from '@/constants';
+import { getAllDocs, groupDocsByCategory } from '@/lib/docs';
+import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
 
 export const metadata = {
 	title: 'Документация',
@@ -35,21 +37,17 @@ export default async function Docs() {
 			<div className="bg-white min-h-screen pt-20 pb-20">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-					{/* Mobile Navigation (Клиентский компонент) */}
 					<MobileNav menuGroups={menuGroups} />
 
 					<div className="flex flex-col md:flex-row gap-12 py-6 md:py-10">
 
-						{/* Левая колонка: Сайдбар (Десктоп) */}
 						<aside className="hidden md:block w-64 shrink-0">
 							<div className="sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 custom-scrollbar">
 								<SidebarNav menuGroups={menuGroups} />
 							</div>
 						</aside>
 
-						{/* Правая колонка: Контент */}
 						<main className="flex-1 min-w-0">
-							{/* Хлебные крошки */}
 							<div className="hidden md:block mb-8 text-sm text-gray-500">
 								<Link href="/" className="hover:text-blue-600">Главная</Link>
 								<span className="mx-2 text-gray-400">/</span>

@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGears, faTags, faWarehouse, faCoins } from '@fortawesome/free-solid-svg-icons';
-
+import { Coins, Columns3Cog, Image as LucidImage, ShoppingBasket } from 'lucide-react';
+ 
 export default function DataPoints() {
     return (
         <section className="py-20 border border-slate-200 bg-slate-50">
@@ -13,7 +12,7 @@ export default function DataPoints() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="p-6 rounded-2xl bg-white border border-slate-200">
                         <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                            <FontAwesomeIcon icon={faCoins} />
+                            <Coins size={20} />
                         </div>
                         <h3 className="font-semibold text-slate-900 mb-3">Ценообразование</h3>
                         <ul className="text-sm text-slate-600 space-y-2">
@@ -25,7 +24,7 @@ export default function DataPoints() {
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-200">
                         <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                            <FontAwesomeIcon icon={faWarehouse} />
+                            <LucidImage size={20} />
                         </div>
                         <h3 className="font-semibold text-slate-900 mb-3">Контент</h3>
                         <ul className="text-sm text-slate-600 space-y-2">
@@ -37,7 +36,7 @@ export default function DataPoints() {
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-200">
                         <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                            <FontAwesomeIcon icon={faTags} />
+                            <ShoppingBasket size={20} />
                         </div>
                         <h3 className="font-semibold text-slate-900 mb-3">Товар</h3>
                         <ul className="text-sm text-slate-600 space-y-2">
@@ -49,7 +48,7 @@ export default function DataPoints() {
                     </div>
                     <div className="p-6 rounded-2xl bg-white border border-slate-200">
                         <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                            <FontAwesomeIcon icon={faGears} />
+                            <Columns3Cog size={20} />
                         </div>
                         <h3 className="font-semibold text-slate-900 mb-3">Дополнительно</h3>
                         <ul className="text-sm text-slate-600 space-y-2">

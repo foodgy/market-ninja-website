@@ -1,6 +1,7 @@
 'use client';
 
 import classNames from 'classnames';
+
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 export default function SidebarNav({

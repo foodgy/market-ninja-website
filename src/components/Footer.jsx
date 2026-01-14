@@ -1,7 +1,8 @@
-import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChrome } from '@fortawesome/free-brands-svg-icons';
 import Link from 'next/link';
+
+import classNames from 'classnames';
+import { Chromium } from 'lucide-react';
+
 import { CONFIG, LINKS } from '@/constants';
 
 export default function Footer() {
@@ -24,7 +25,7 @@ export default function Footer() {
                     )}
                     rel="noopener noreferrer"
                 >
-                    <FontAwesomeIcon icon={faChrome} className="mr-2" /> Установить в Chrome
+                    <Chromium size={18} /> Установить в Chrome
                 </a>
 
                 <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">

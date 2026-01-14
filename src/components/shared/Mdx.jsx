@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import Callout from '@/components/shared/Callout';
 import Collapsible from '@/components/shared/Collapsible';
 import Video from '@/components/shared/Video';

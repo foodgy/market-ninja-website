@@ -7,5 +7,5 @@ export const LINKS = {
     CHROME_STORE: 'https://chromewebstore.google.com/detail/kplkdiajcfmgalajncepldhihbhkninm',
     TELEGRAM: 'https://t.me/getmarketninja',
     AUTHOR: 'https://romakoch.com',
-    SITE_URL: 'https://marketninja.ru',
+    SITE_URL: 'https://www.marketninja.ru',
 };

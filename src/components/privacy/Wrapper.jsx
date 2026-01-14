@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import classNames from 'classnames';
 
 export default function Wrapper({ childrenRu, childrenEn, metaRu, metaEn }) {

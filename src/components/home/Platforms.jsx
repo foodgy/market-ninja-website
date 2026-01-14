@@ -1,5 +1,6 @@
+import Image from 'next/image'; 
+
 import classNames from 'classnames';
-import Image from 'next/image';
 
 export default function Platforms() {
     return (

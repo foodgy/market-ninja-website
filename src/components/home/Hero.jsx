@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChrome } from '@fortawesome/free-brands-svg-icons';
-import { faUsers, faStar} from '@fortawesome/free-solid-svg-icons';
+import { Chromium, Star, Users } from 'lucide-react';
+
 import Video from '@/components/shared/Video';
 import { LINKS } from '@/constants';
 
@@ -30,16 +29,16 @@ export default function Home() {
                             )}
                             rel="noopener noreferrer"
                         >
-                            <FontAwesomeIcon icon={faChrome} /> Установить в Chrome
+                            <Chromium size={18} /> Установить в Chrome
                         </a>
                     </div>
                     <div className="mt-6 flex items-center justify-center gap-6 text-sm text-slate-500">
                         <div className="flex items-center gap-1.5">
-                            <FontAwesomeIcon icon={faUsers} className="text-blue-500 text-xs" />
+                            <Users size={14} strokeWidth={3} className="text-blue-500" />
                             1 000+ установок
                         </div>
                         <div className="flex items-center gap-1.5">
-                            <FontAwesomeIcon icon={faStar} className="text-yellow-400 text-xs" />
+                            <Star size={15} strokeWidth={0} fill="currentColor" className="text-yellow-400" />
                             5.0 рейтинг
                         </div>
                     </div>

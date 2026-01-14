@@ -1,8 +1,8 @@
 'use client';
 
+import { ChevronDown, List } from 'lucide-react';
+
 import { useScrollSpy } from '@/hooks/useScrollSpy';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faList } from '@fortawesome/free-solid-svg-icons';
 
 export default function MobileNav({
     menuGroups,
@@ -26,7 +26,7 @@ export default function MobileNav({
                     htmlFor="mobile-docs-nav"
                     className="flex items-center text-sm font-semibold text-gray-700 mb-2"
                 >
-                    <FontAwesomeIcon icon={faList} className="mr-2 text-blue-600" />
+                    <List size={18} className="mr-2 text-blue-600" />
                     Навигация по разделам:
                 </label>
 
@@ -41,7 +41,6 @@ export default function MobileNav({
                         {menuGroups.map((group) => (
                             <optgroup label={group.name} key={group.name}>
                                 {group.items.map((item) => {
-                                    // Та же логика выбора названия
                                     const label = item.sidebarLabel || item[labelField] || item.title;
 
                                     return (
@@ -55,7 +54,7 @@ export default function MobileNav({
                     </select>
 
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                        <FontAwesomeIcon icon={faChevronDown} className="w-3 h-3" />
+                        <ChevronDown size={20} />
                     </div>
                 </div>
             </div>

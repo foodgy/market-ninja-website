@@ -1,4 +1,4 @@
-import { LINKS, CONFIG } from '@/constants';
+import { CONFIG, LINKS } from '@/constants'; 
 
 export const generateBreadcrumbsJsonLd = (items) => {
     return {

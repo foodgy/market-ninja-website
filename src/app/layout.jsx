@@ -1,10 +1,12 @@
 import { Inter } from 'next/font/google';
+
 import { GoogleTagManager } from '@next/third-parties/google';
 import classNames from 'classnames';
-import FontAwesomeConfig from '@/components/FontAwesomeConfig';
-import Header from '@/components/Header';
+
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { CONFIG, LINKS } from '@/constants';
+
 import './styles/index.css';
 
 export const metadata = {
@@ -35,7 +37,6 @@ export default function RootLayout({ children }) {
                     inter.variable
                 )}
             >
-                <FontAwesomeConfig />
                 <Header />
                 {children}
                 <Footer />

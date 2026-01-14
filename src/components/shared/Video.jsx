@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect,useRef, useState } from 'react';
+
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { Play } from 'lucide-react';
 
 export default function Video({
     src,
@@ -99,8 +99,8 @@ export default function Video({
                             isPlaying ? "opacity-0" : "opacity-100 hover:bg-black/30"
                         )}
                     >
-                        <div className="flex size-20 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
-                            <FontAwesomeIcon icon={faPlay} className="ml-1 text-4xl text-gray-600" />
+                        <div className="flex size-20 text-gray-600 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
+                            <Play strokeWidth={0} fill="currentColor" size={42} />
                         </div>
                     </div>
                 )}

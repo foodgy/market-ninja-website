@@ -1,11 +1,13 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
-import { getPrivacyContent } from '@/lib/privacy';
-import { MdxComponents } from '@/components/shared/Mdx';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+
+import remarkGfm from 'remark-gfm';
+
 import Wrapper from '@/components/privacy/Wrapper';
+import { MdxComponents } from '@/components/shared/Mdx';
+import { LINKS } from '@/constants'; 
 import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
-import { LINKS } from '@/constants';
+import { getPrivacyContent } from '@/lib/privacy';
 
 export const metadata = {
     title: 'Политика конфиденциальности',
@@ -13,7 +15,6 @@ export const metadata = {
 };
 
 export default async function Privacy() {
-    // 1. Получаем данные для обоих языков на сервере
     const ruData = await getPrivacyContent('ru');
     const enData = await getPrivacyContent('en');
 
@@ -34,15 +35,12 @@ export default async function Privacy() {
             <div className="bg-white min-h-screen pt-20 pb-20">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* Хлебные крошки */}
                     <div className="mb-8 text-sm text-gray-500">
                         <Link href="/" className="hover:text-blue-600">Главная</Link>
                         <span className="mx-2 text-gray-400">/</span>
                         <span className="text-gray-900">Политика конфиденциальности</span>
                     </div>
 
-                    {/* Основной контент */}
-                    {/* Передаем отрендеренные MDX-компоненты как children пропсы в обертку */}
                     <Wrapper
                         metaRu={ruData.meta}
                         metaEn={enData.meta}
