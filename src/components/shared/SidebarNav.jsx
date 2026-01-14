@@ -3,6 +3,7 @@
 import classNames from 'classnames';
 
 import { useScrollSpy } from '@/hooks/useScrollSpy';
+import { smoothScrollTo } from '@/utils/scroll';
 
 export default function SidebarNav({
     menuGroups,
@@ -10,11 +11,10 @@ export default function SidebarNav({
 }) {
     const allIds = menuGroups.flatMap(group => group.items.map(item => item.slug));
 
-    const { activeId, scrollTo } = useScrollSpy(allIds, 100);
+    const { activeId } = useScrollSpy(allIds, 100);
 
     const handleClick = (e, slug) => {
-        e.preventDefault();
-        scrollTo(slug);
+        smoothScrollTo(e, slug, 100);
     };
 
     return (

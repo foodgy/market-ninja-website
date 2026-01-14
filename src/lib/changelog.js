@@ -3,6 +3,8 @@ import path from 'path';
 
 import matter from 'gray-matter';
 
+import { slugify } from '@/utils/slugify';
+
 const contentDirectory = path.join(process.cwd(), 'src/content/changelog');
 
 export async function getAllChangelogs() {
@@ -11,10 +13,13 @@ export async function getAllChangelogs() {
     const fileNames = fs.readdirSync(contentDirectory);
 
     const allChangelogs = fileNames.map((fileName) => {
-        const slug = fileName.replace(/\.mdx$/, '');
         const fullPath = path.join(contentDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
+
+        const slug = data.slug
+            ? data.slug
+            : (data.title ? slugify(data.title) : fileName.replace(/\.mdx$/, ''));
 
         return {
             slug,
@@ -26,12 +31,10 @@ export async function getAllChangelogs() {
     return allChangelogs.sort((a, b) => {
         const v1 = a.version.split('.').map(Number);
         const v2 = b.version.split('.').map(Number);
-
         if (v2[0] !== v1[0]) return v2[0] - v1[0];
         if (v2[1] !== v1[1]) return v2[1] - v1[1];
         return v2[2] - v1[2];
     });
-
 }
 
 export function groupChangelogByYear(logs) {

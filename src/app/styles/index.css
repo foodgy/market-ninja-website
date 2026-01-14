@@ -26,29 +26,35 @@
     */
 }
 
+@layer utilities {
+  .prose-slate {
+    --tw-prose-bold: inherit;
+  }
+}
+
 body {
   font-family: var(--font-inter);
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    /* margin: 1.5rem 0; */
-    @apply text-sm;
+  width: 100%;
+  border-collapse: collapse;
+  /* margin: 1.5rem 0; */
+  @apply text-sm;
 }
 
 th,
 td {
-    @apply border border-gray-300;
-    @apply py-2 px-3;
-    text-align: left;
+  @apply border border-gray-300;
+  @apply py-2 px-3;
+  text-align: left;
 }
 
 th {
-    @apply bg-gray-100;
-    @apply font-semibold;
+  @apply bg-gray-100;
+  @apply font-semibold;
 }
 
 td {
-    @apply bg-white;
+  @apply bg-white;
 }

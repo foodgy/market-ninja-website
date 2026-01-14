@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 
-import remarkGfm from 'remark-gfm';
+import classNames from 'classnames';
 
-import { MdxComponents } from '@/components/shared/Mdx';
+import CustomLink from '@/components/shared/CustomLink';
+import { MDXContent } from '@/components/shared/MDXContent';
 import MobileNav from '@/components/shared/MobileNav';
 import SidebarNav from '@/components/shared/SidebarNav';
 import { LINKS } from '@/constants';
 import { getAllChangelogs, groupChangelogByYear } from '@/lib/changelog';
 import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
+import { slugify } from '@/utils/slugify';
 
 export const metadata = {
     title: 'История изменений',
@@ -72,24 +73,31 @@ export default async function ChangelogPage() {
                             </div>
 
                             <div className="space-y-20">
-                                {logs.map((log) => (
+                                {logs.map((item) => (
                                     <article
-                                        key={log.slug}
-                                        id={log.slug}
+                                        key={item.slug}
+                                        id={item.slug}
                                         className="scroll-mt-28 border-b border-gray-100 pb-16 last:border-0"
                                     >
                                         <div className="mb-6">
-                                            <h2 className="text-2xl font-semibold text-gray-900">{log.title}</h2>
+                                            <h2 className="group relative text-2xl font-semibold text-gray-900">
+                                                {item.title}
+                                                <CustomLink
+                                                    href={`#${slugify(item.title)}`}
+                                                    className={classNames(
+                                                        'absolute -left-6 top-0 opacity-0 transition-opacity',
+                                                        'text-slate-400 no-underline px-1',
+                                                        'group-hover:opacity-100 not-prose',
+                                                    )}
+                                                    aria-label="Ссылка на этот раздел"
+                                                >
+                                                    #
+                                                </CustomLink>
+                                            </h2>
                                         </div>
 
                                         <div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-600">
-                                            <MDXRemote
-                                                source={log.content}
-                                                components={MdxComponents}
-                                                options={{
-                                                    mdxOptions: { remarkPlugins: [remarkGfm] }
-                                                }}
-                                            />
+                                            <MDXContent source={item.content} variant="changelog" />
                                         </div>
                                     </article>
                                 ))}

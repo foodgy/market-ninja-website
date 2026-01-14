@@ -1,11 +1,8 @@
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-
-import remarkGfm from 'remark-gfm';
 
 import Wrapper from '@/components/privacy/Wrapper';
-import { MdxComponents } from '@/components/shared/Mdx';
-import { LINKS } from '@/constants'; 
+import { MDXContent } from '@/components/shared/MDXContent';
+import { LINKS } from '@/constants';
 import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
 import { getPrivacyContent } from '@/lib/privacy';
 
@@ -45,18 +42,10 @@ export default async function Privacy() {
                         metaRu={ruData.meta}
                         metaEn={enData.meta}
                         childrenRu={
-                            <MDXRemote
-                                source={ruData.content}
-                                components={MdxComponents}
-                                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                            />
+                            <MDXContent source={ruData.content} variant="default" />
                         }
                         childrenEn={
-                            <MDXRemote
-                                source={enData.content}
-                                components={MdxComponents}
-                                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-                            />
+                            <MDXContent source={enData.content} variant="default" />
                         }
                     />
 

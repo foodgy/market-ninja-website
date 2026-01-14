@@ -3,6 +3,7 @@
 import { ChevronDown, List } from 'lucide-react';
 
 import { useScrollSpy } from '@/hooks/useScrollSpy';
+import { smoothScrollTo } from '@/utils/scroll';
 
 export default function MobileNav({
     menuGroups,
@@ -10,12 +11,12 @@ export default function MobileNav({
 }) {
     const allIds = menuGroups.flatMap(group => group.items.map(item => item.slug));
 
-    const { activeId, scrollTo } = useScrollSpy(allIds, 200);
+    const { activeId } = useScrollSpy(allIds, 200);
 
     const handleChange = (e) => {
         const slug = e.target.value;
         if (slug) {
-            scrollTo(slug);
+            smoothScrollTo(e, slug, 200);
         }
     };
 
@@ -37,7 +38,7 @@ export default function MobileNav({
                         onChange={handleChange}
                         className="appearance-none w-full bg-slate-50 border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 pr-10 transition-shadow outline-none"
                     >
-                        <option value="" disabled>Выберите тему...</option>
+                        <option value="" disabled>Выберите раздел...</option>
                         {menuGroups.map((group) => (
                             <optgroup label={group.name} key={group.name}>
                                 {group.items.map((item) => {

@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 
-import remarkGfm from 'remark-gfm';
+import classNames from 'classnames';
 
-import { MdxComponents } from '@/components/shared/Mdx';
+import CustomLink from '@/components/shared/CustomLink';
+import { MDXContent } from '@/components/shared/MDXContent';
 import MobileNav from '@/components/shared/MobileNav';
 import SidebarNav from '@/components/shared/SidebarNav';
 import { LINKS } from '@/constants';
 import { getAllDocs, groupDocsByCategory } from '@/lib/docs';
 import { generateBreadcrumbsJsonLd } from '@/lib/json-ld';
+import { slugify } from '@/utils/slugify';
 
 export const metadata = {
 	title: 'Документация',
@@ -74,16 +75,27 @@ export default async function Docs() {
 													{item.category}
 												</span>
 											</div>
-											<h2 className="text-3xl font-semibold text-gray-900">{item.title}</h2>
+											<h2 className="group relative text-2xl font-semibold text-gray-900">
+												{item.title}
+												<CustomLink
+													href={`#${slugify(item.title)}`}
+													className={classNames(
+														'absolute -left-6 top-0 opacity-0 transition-opacity',
+														'text-slate-400 no-underline px-1',
+														'group-hover:opacity-100 not-prose',
+													)}
+													aria-label="Ссылка на этот раздел"
+												>
+													#
+												</CustomLink>
+											</h2>
 										</div>
 
 										<div className="prose prose-slate max-w-none prose-headings:scroll-mt-28 prose-a:text-blue-600 prose-img:rounded-xl">
-											<MDXRemote
+											<MDXContent
 												source={item.content}
-												components={MdxComponents}
-												options={{
-													mdxOptions: { remarkPlugins: [remarkGfm] }
-												}}
+												variant="default"
+												idPrefix={item.slug}
 											/>
 										</div>
 									</article>

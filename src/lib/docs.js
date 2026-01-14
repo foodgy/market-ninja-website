@@ -3,6 +3,8 @@ import path from 'path';
 
 import matter from 'gray-matter';
 
+import { slugify } from '@/utils/slugify';
+
 const docsDirectory = path.join(process.cwd(), 'src/content/docs');
 
 export const CATEGORY_ORDER = [
@@ -20,11 +22,13 @@ export async function getAllDocs() {
     const fileNames = fs.readdirSync(docsDirectory);
 
     const allDocs = fileNames.map((fileName) => {
-        const slug = fileName.replace(/\.mdx$/, '');
         const fullPath = path.join(docsDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
-        
         const { data, content } = matter(fileContents);
+
+        const slug = data.slug
+            ? data.slug
+            : (data.title ? slugify(data.title) : fileName.replace(/\.mdx$/, ''));
 
         return {
             slug,
@@ -47,7 +51,7 @@ export function groupDocsByCategory(docs) {
     const sortedCategories = Object.keys(grouped).sort((a, b) => {
         const indexA = CATEGORY_ORDER.indexOf(a);
         const indexB = CATEGORY_ORDER.indexOf(b);
-        
+
         if (indexA !== -1 && indexB !== -1) return indexA - indexB;
         if (indexA !== -1) return -1;
         if (indexB !== -1) return 1;

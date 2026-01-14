@@ -6,17 +6,17 @@ const VARIANTS = {
     blue: {
         container: 'bg-blue-50 border-blue-100',
         text: 'text-blue-700',
-        icon: 'text-blue-500',
+        icon: 'text-blue-700',
     },
     gray: {
         container: 'bg-gray-50 border-gray-200',
         text: 'text-gray-700',
-        icon: 'text-gray-500',
+        icon: 'text-gray-700',
     },
     amber: {
         container: 'bg-amber-50 border-amber-100',
         text: 'text-amber-700',
-        icon: 'text-amber-500',
+        icon: 'text-amber-700',
     }
 };
 
