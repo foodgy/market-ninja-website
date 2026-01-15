@@ -7,10 +7,7 @@ build:
   skip: false
   additionalCommands: null
   artifacts:
-    "*": 
-      - .next
-      - package.json
-      - node_modules
+    "*": /
 run:
   scriptName: ""
   scriptArguments: null
