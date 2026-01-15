@@ -7,7 +7,7 @@ build:
   skip: false
   additionalCommands: null
   artifacts:
-    "*": ./next
+    "*": .next
 run:
   scriptName: ""
   scriptArguments: null
