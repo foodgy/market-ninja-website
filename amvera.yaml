@@ -5,13 +5,13 @@ meta:
     version: "22"
 build:
   skip: false
-  additionalCommands: null
+  additionalCommands: npm ci && npm run build
   artifacts:
-    "*": /
+    ".next/standalone": ./
 run:
   scriptName: ""
   scriptArguments: null
   nodeArguments: null
-  command: npm run start
+  command: node server.js
   persistenceMount: /data
   containerPort: "3000"
