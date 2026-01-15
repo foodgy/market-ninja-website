@@ -1,0 +1,21 @@
+meta:
+  environment: node
+  toolchain:
+    name: npm
+    version: "22"
+
+build:
+  skip: false
+  additionalCommands:
+    - npm run build
+  artifacts:
+    "node_modules": node_modules
+    ".next": .next
+
+run:
+  scriptName: ""
+  scriptArguments: null
+  nodeArguments: "--max-old-space-size=512"
+  command: npm run start
+  persistenceMount: /data
+  containerPort: "3000"
