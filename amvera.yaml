@@ -3,15 +3,13 @@ meta:
   toolchain:
     name: npm
     version: "22"
+
 build:
   skip: false
   additionalCommands: npm ci && npm run build
   artifacts:
-    ".next/standalone": ./
+    "*": /
+
 run:
-  scriptName: ""
-  scriptArguments: null
-  nodeArguments: null
-  command: node server.js
-  persistenceMount: /data
+  command: npm run start
   containerPort: "3000"
