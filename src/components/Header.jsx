@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback,useState } from 'react';
+import { useCallback, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -32,8 +32,8 @@ export default function Header() {
                                 <Image
                                     src="/images/logo.png"
                                     alt={CONFIG.SITE_NAME}
-                                    width={60}
-                                    height={60}
+                                    width={36}
+                                    height={32}
                                     className="object-contain"
                                     priority
                                 />
