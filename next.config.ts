@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'marketninja.ru',
+          },
+        ],
+        destination: 'https://www.marketninja.ru/:path*',
+        permanent: true,
+      },
+    ];
   },
 };
 
