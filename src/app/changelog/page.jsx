@@ -67,6 +67,7 @@ export default async function ChangelogPage() {
                                 <ul className="list-disc ml-6 space-y-1 text-gray-700">
                                     <li>Возможность парсить данные товаров по списку URL;</li>
                                     <li>Выгрузка сразу всех характеристик товара;</li>
+                                    <li>Парсинг отзывов товаров;</li>
                                     <li>Больше настроек экспорта и парсинга;</li>
                                     <li>API.</li>
                                 </ul>

@@ -10,8 +10,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-4xl mx-auto mb-10">
                     <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
-                        Парсер маркетплейсов, 
-                        <span className="block text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-emerald-500">который работает</span>
+                        Парсер маркетплейсов, <span className="block text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-emerald-500">который работает</span>
                     </h1>
                     <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
                         Парсер для Wildberries, Ozon и Lamoda прямо в вашем браузере
