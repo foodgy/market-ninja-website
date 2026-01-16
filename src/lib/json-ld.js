@@ -1,4 +1,4 @@
-import { CONFIG, LINKS } from '@/constants'; 
+import { CONFIG, LINKS, REVIEWS } from '@/constants';
 
 export const generateBreadcrumbsJsonLd = (items) => {
     return {
@@ -44,7 +44,7 @@ export const generateHomepageJsonLd = () => {
             },
             {
                 '@type': 'SoftwareApplication',
-                '@id': 'https://marketninja.ru/#software',
+                '@id': `${LINKS.SITE_URL}/#software`,
                 'name': CONFIG.SITE_NAME,
                 'description': 'Market Ninja — бесплатный парсер цен Ozon, Wildberries и Lamoda. Получайте информацию о товарах, ценах и многом другом одним нажатием кнопки!',
                 'url': LINKS.SITE_URL,
@@ -59,7 +59,7 @@ export const generateHomepageJsonLd = () => {
                 'screenshot': [
                     {
                         '@type': 'ImageObject',
-                        'url': 'https://lh3.googleusercontent.com/W8NqUtlmiu2BySR3RkzwEbGzSYG_pu-frns7mFcNxgnnSj1Z4uRApyKYI5iecdquJxk7MhXfzsJKRuXF2pqTNf5klQ=s1600-w1600-h1000',
+                        'url': `${LINKS.SITE_URL}/images/screenshot.png`,
                         'caption': 'Скриншот расширения Market Ninja'
                     }
                 ],
@@ -67,7 +67,7 @@ export const generateHomepageJsonLd = () => {
                     '@type': 'Person',
                     'name': 'Роман Кох',
                     'jobTitle': 'Head of E-commerce',
-                    'description': 'Роман Кох — эксперт в области электронной коммерции с более чем 15-летним опытом, пишет о менеджменте, e-commerce и методах продуктивности.',
+                    'description': 'Роман Кох — эксперт в области электронной коммерции с более чем 15-летним опытом.',
                     'url': 'https://romakoch.com/about/',
                     'image': {
                         '@type': 'ImageObject',
@@ -87,16 +87,26 @@ export const generateHomepageJsonLd = () => {
                 },
                 'offers': {
                     '@type': 'Offer',
-                    'price': '0',
+                    'price': 0,
                     'priceCurrency': 'RUB',
-                    'url': LINKS.CHROME_STORE,
-                    'availability': 'https://schema.org/InStock'
                 },
                 'aggregateRating': {
                     '@type': 'AggregateRating',
                     'ratingValue': '5.0',
                     'ratingCount': '125'
-                }
+                },
+                'review': REVIEWS.map(review => ({
+                    '@type': 'Review',
+                    'author': {
+                        '@type': 'Person',
+                        'name': review.author
+                    },
+                    'reviewBody': review.reviewBody,
+                    'reviewRating': {
+                        '@type': 'Rating',
+                        'ratingValue': review.ratingValue
+                    }
+                }))
             },
             {
                 '@type': 'VideoObject',
@@ -104,11 +114,49 @@ export const generateHomepageJsonLd = () => {
                 'name': 'Market Ninja — демо использования расширения',
                 'description': 'Видео-обзор возможностей Market Ninja: как парсить цены и собирать данные с Ozon и Wildberries.',
                 'thumbnailUrl': `${LINKS.SITE_URL}/assets/img/preview.jpg`,
-                'uploadDate': '2025-09-25',
+                'uploadDate': '2025-09-25T08:00:00+03:00',
                 'embedUrl': 'https://www.youtube.com/embed/JqRSYqkRi5E',
                 'publisher': {
                     '@id': `${LINKS.SITE_URL}/#organization`
                 }
+            },
+            {
+                '@type': 'FAQPage',
+                '@id': `${LINKS.SITE_URL}/#faq`,
+                'mainEntity': [
+                    {
+                        '@type': 'Question',
+                        'name': 'Является ли Market Ninja бесплатным?',
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': 'Да, базовый функционал парсера Market Ninja полностью бесплатен для всех пользователей.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        'name': 'Какие маркетплейсы поддерживает парсер?',
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': 'На данный момент Market Ninja поддерживает сбор данных с Wildberries, Ozon и Lamoda.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        'name': 'В каких форматах можно скачать данные?',
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': 'Вы можете экспортировать собранные данные в форматах Excel (XLSX), CSV и JSON.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        'name': 'Безопасно ли использовать расширение?',
+                        'acceptedAnswer': {
+                            '@type': 'Answer',
+                            'text': 'Да, расширение работает только в вашем браузере, не собирает личные данные и проходит строгую проверку в Chrome Web Store.'
+                        }
+                    }
+                ]
             },
             {
                 '@type': 'BreadcrumbList',

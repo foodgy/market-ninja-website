@@ -3,37 +3,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { Star } from 'lucide-react';
 
-import { LINKS } from '@/constants';
-
-const REVIEWS = [
-    {
-        id: 1,
-        author: 'Ansordzr',
-        rating: 5,
-        heading: 'Легкое, быстрое, удобное',
-        text: 'Огромное спасибо за расширение. Очень помогает. Легкое, быстрое, данные легко перекинуть для анализа.',
-        link: 'https://chromewebstore.google.com/reviews/eacab541-810a-4e4a-bcd6-8cb9bf5a56be',
-        avatar: 'https://lh3.googleusercontent.com/a/ACg8ocKoHbA-MIQuoCxYiAci77OX9Fq8rZMKnYJc9jA2p2ISvl9EXg=s96-w96-h96',
-    },
-    {
-        id: 2,
-        author: 'Veronica Järvinen',
-        rating: 5,
-        heading: 'Быстрый и простой',
-        link: 'https://chromewebstore.google.com/reviews/c0e2fa1c-acec-4d33-ab9a-af31c2602d46',
-        text: 'За секунды забирает данные даже с больших категорий, очень помогает в прайс мониторинге, контроле партнеров и анализе конкурентов и категорий.',
-        avatar: 'https://lh3.googleusercontent.com/a-/ALV-UjWn3IGNYheMGosP3JFS3gr1Cv_tiS-bxN_7fMEKLyCDdtaGxTPs=s96-w96-h96',
-    },
-    {
-        id: 3,
-        author: 'Дмитрий Новиков',
-        rating: 5,
-        heading: 'Отлично собирает данные',
-        text: 'Прекрасно работает. Собрал данных для обучения в разработке своего каталога.',
-        link: 'https://chromewebstore.google.com/reviews/51ba8e57-f59e-435a-8ecd-b25a46930ec4',
-        avatar: 'https://lh3.googleusercontent.com/a-/ALV-UjV-cuOgvmWsv1_yDbzHgZDz7UAj4pLos39UjsPi7-Wh0VQe6dw=s96-w96-h96',
-    }
-];
+import { LINKS, REVIEWS } from '@/constants';
 
 export default function Reviews() {
     const Stars = ({ count = 5, className = '' }) => {
@@ -88,7 +58,7 @@ export default function Reviews() {
                                 <div className="flex flex-col items-start">
                                     <div className="text-xs font-medium text-gray-500">Chrome Web Store</div>
                                     <div className="flex flex-row justify-between items-center">
-                                        <Stars count={review.rating} className="flex flex-row gap-1 text-[11px]" />
+                                        <Stars count={review.ratingValue} className="flex flex-row gap-1 text-[11px]" />
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +70,7 @@ export default function Reviews() {
                                 </div>
                             )}
                             <blockquote className="flex-1 text-sm text-slate-700 leading-relaxed mb-6">
-                                &ldquo;{review.text}&rdquo;
+                                &ldquo;{review.reviewBody}&rdquo;
                             </blockquote>
                             <div className="flex items-center gap-3 border-t border-slate-200 pt-4">
                                 <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-100 shrink-0">
