@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect,useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 import { Play } from 'lucide-react';
@@ -91,7 +91,7 @@ export default function Video({
                 >
                     <source src={`${src}#t=0.1`} type="video/mp4" />
                 </video>
-                
+
                 {showOverlay && (
                     <div
                         className={classNames(
