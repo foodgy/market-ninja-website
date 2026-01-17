@@ -10,9 +10,11 @@
   "homepage": "https://marketninja.ru",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "build": "next build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
+    "start": "node .next/standalone/server.js",
+    "build:local": "next build",
+    "start:local": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.0",
