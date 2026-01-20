@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronDown, List } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { smoothScrollTo } from '@/utils/scroll';
@@ -27,7 +27,6 @@ export default function MobileNav({
                     htmlFor="mobile-docs-nav"
                     className="flex items-center text-sm font-semibold text-gray-700 mb-2"
                 >
-                    <List size={18} className="mr-2 text-blue-600" />
                     Навигация по разделам:
                 </label>
 
